@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#eeeeee",
+                    "surface-bright": "#f9f9f9",
+                    "surface-variant": "#e2e2e2",
+                    "on-tertiary-fixed-variant": "#474746",
+                    "outline-variant": "#c4c6d0",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#001b3d",
+                    "on-secondary-container": "#785a1a",
+                    "on-secondary-fixed-variant": "#5d4201",
+                    "secondary": "#775a19",
+                    "secondary-container": "#fed488",
+                    "secondary-fixed-dim": "#e9c176",
+                    "tertiary": "#0d0d0d",
+                    "on-primary-container": "#718bb9",
+                    "inverse-on-surface": "#f0f1f1",
+                    "on-primary": "#ffffff",
+                    "on-background": "#1a1c1c",
+                    "surface-container-low": "#f3f3f3",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#dadada",
+                    "on-error-container": "#93000a",
+                    "outline": "#74777f",
+                    "primary": "#000e24",
+                    "on-primary-fixed-variant": "#2c4771",
+                    "on-secondary-fixed": "#261900",
+                    "background": "#f9f9f9",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#adc7f8",
+                    "on-surface": "#1a1c1c",
+                    "error": "#ba1a1a",
+                    "surface": "#f9f9f9",
+                    "on-tertiary-container": "#8b8a8a",
+                    "inverse-primary": "#adc7f8",
+                    "surface-tint": "#455f8a",
+                    "tertiary-fixed-dim": "#c8c6c5",
+                    "on-tertiary-fixed": "#1c1b1b",
+                    "surface-container-highest": "#e2e2e2",
+                    "surface-container-high": "#e8e8e8",
+                    "secondary-fixed": "#ffdea5",
+                    "inverse-surface": "#2f3131",
+                    "tertiary-fixed": "#e5e2e1",
+                    "tertiary-container": "#232323",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "primary-container": "#00234b",
+                    "on-surface-variant": "#43474e",
+                    "primary-fixed": "#d6e3ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(0, 14, 36, 0.4), rgba(0, 14, 36, 0.9));
+        }
+        .editorial-overlay {
+            background: linear-gradient(to bottom, transparent 40%, rgba(0, 0, 0, 0.8) 100%);
+        }
+        body { font-family: 'Manrope', sans-serif; }
+        h1, h2, h3, .serif-font { font-family: 'Noto Serif', serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface leading-relaxed">
+<header class="w-full sticky top-0 z-50 bg-[#f9f9f9] dark:bg-[#000e24]/90 backdrop-blur-md shadow-sm dark:shadow-none flex justify-between items-center px-6 py-4 max-w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#00234b] dark:text-[#f3f3f3]" data-icon="menu">menu</span>
+</div>
+<h1 class="text-xl md:text-2xl font-serif italic tracking-tight text-[#00234b] dark:text-[#f3f3f3] text-center leading-none">The Israel Camerata<br/><span class="text-sm md:text-lg">Jerusalem</span></h1>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#00234b] dark:text-[#f3f3f3]" data-icon="account_circle">account_circle</span>
+</div>
+</header>
+<main>
+<section class="relative h-[480px] flex items-end overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="classical orchestra violins" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCy4ixv4zkyOiuTppKX6jolQplwXep57DPoMDv56xFJA4tsqnItjvDNnpXBsTa-8Z12UWCkOF6lY4BaJwiL5GNCPQYSn3z8h2-EIwO1AmP-LD1DqepEJ4ayHYokLJTAolyIaUnjHkcYvmeNWr9XZHhFH_wBF8gZEnybz4ldPIEZ8Mr6EQCBkJODeqC7KhvOU70HHQZeiz37wdTBBWxJnF2vjviGlPMIxSFTGi3I4AfKG4_0z71KwQqP6bG8Yv3nDW5XIThDc5P3vEsS');"></div>
+<div class="absolute inset-0 hero-gradient"></div>
+<div class="relative z-10 p-8 w-full">
+<p class="text-secondary-fixed text-sm uppercase tracking-[0.2em] mb-4 font-label">עונת 2024-2025</p>
+<h2 class="text-4xl text-white serif-font font-bold leading-tight mb-6">
+                    הקאמרטה הירושלמית - הרשמה לעונה החדשה
+                </h2>
+<div class="w-16 h-1 bg-secondary"></div>
+</div>
+</section>
+<section class="py-16 px-6 bg-surface-container-low">
+<div class="max-w-xl mx-auto">
+<div class="mb-10 text-right">
+<h3 class="text-3xl text-primary serif-font mb-4">פרטים אישיים</h3>
+<p class="text-on-surface-variant font-label text-lg">הצטרפו לקהילת המנויים שלנו ותיהנו מחוויה מוזיקלית יוצאת דופן</p>
+</div>
+<form class="space-y-10">
+<div class="relative group">
+<input class="peer w-full bg-transparent border-0 border-b border-outline py-4 px-0 focus:ring-0 focus:border-secondary transition-colors duration-300 text-xl placeholder-transparent" id="full-name" placeholder="שם מלא" required="" type="text"/>
+<label class="absolute top-4 right-0 text-on-surface-variant font-label serif-font transition-all duration-300 peer-focus:-top-4 peer-focus:text-secondary peer-focus:text-lg peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-secondary peer-[:not(:placeholder-shown)]:text-lg text-xl pointer-events-none" for="full-name">שם מלא</label>
+</div>
+<div class="relative group">
+<input class="peer w-full bg-transparent border-0 border-b border-outline py-4 px-0 focus:ring-0 focus:border-secondary transition-colors duration-300 text-xl placeholder-transparent" id="phone" placeholder="טלפון" required="" type="tel"/>
+<label class="absolute top-4 right-0 text-on-surface-variant font-label serif-font transition-all duration-300 peer-focus:-top-4 peer-focus:text-secondary peer-focus:text-lg peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-secondary peer-[:not(:placeholder-shown)]:text-lg text-xl pointer-events-none" for="phone">טלפון</label>
+</div>
+<div class="relative group">
+<input class="peer w-full bg-transparent border-0 border-b border-outline py-4 px-0 focus:ring-0 focus:border-secondary transition-colors duration-300 text-xl placeholder-transparent" id="email" placeholder="אימייל" required="" type="email"/>
+<label class="absolute top-4 right-0 text-on-surface-variant font-label serif-font transition-all duration-300 peer-focus:-top-4 peer-focus:text-secondary peer-focus:text-lg peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-secondary peer-[:not(:placeholder-shown)]:text-lg text-xl pointer-events-none" for="email">אימייל</label>
+</div>
+<div class="space-y-6 pt-4">
+<p class="text-on-surface-variant font-label serif-font text-xl font-bold">סוג מנוי *</p>
+<div class="flex flex-col gap-6">
+<label class="flex items-center gap-4 cursor-pointer group">
+<div class="relative flex items-center justify-center">
+<input class="peer appearance-none w-7 h-7 border-2 border-outline rounded-full checked:border-secondary transition-all cursor-pointer" name="subscription-type" required="" type="radio" value="single"/>
+<div class="absolute w-4 h-4 bg-secondary rounded-full scale-0 peer-checked:scale-100 transition-transform"></div>
+</div>
+<span class="text-on-surface font-label serif-font group-hover:text-secondary transition-colors text-xl">מנוי יחיד</span>
+</label>
+<label class="flex items-center gap-4 cursor-pointer group">
+<div class="relative flex items-center justify-center">
+<input class="peer appearance-none w-7 h-7 border-2 border-outline rounded-full checked:border-secondary transition-all cursor-pointer" name="subscription-type" required="" type="radio" value="couple"/>
+<div class="absolute w-4 h-4 bg-secondary rounded-full scale-0 peer-checked:scale-100 transition-transform"></div>
+</div>
+<span class="text-on-surface font-label serif-font group-hover:text-secondary transition-colors text-xl">מנוי זוגי</span>
+</label>
+</div>
+</div></form>
+</div>
+</section>
+<section class="py-16 px-0 bg-surface">
+<div class="max-w-4xl mx-auto px-6 mb-12">
+<div class="flex flex-col gap-2">
+<h3 class="text-4xl text-primary serif-font leading-tight italic">רפרטואר העונה</h3>
+<div class="flex justify-between items-center border-b border-outline-variant pb-4">
+<span class="text-on-surface font-label text-lg">בחרו 6 קונצרטים מתוך 8</span>
+<span class="text-secondary font-bold font-label">ניתן לבחור עד 6</span>
+</div>
+</div>
+</div>
+<div class="space-y-12">
+<article class="relative w-full group overflow-hidden">
+<input class="hidden peer" id="concert-1" type="checkbox"/>
+<div class="relative h-[450px] w-full">
+<img alt="Vivaldi &amp; Mozart" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSMnJZHUi8kXF2hZe9vMfdIWsB2yqYt0SnGZLQcCYU3JixLxRZYhJiGaYkYggIsS4GWfOtPiUHJbHEqt5t_0ln_K9TUZb2GhGboWrnNMODbnDX9KP2fURGh4XrPu-I_xv5h2I3Vk0ITpvwmvO4i9Ps83dAWyoMI6kztVio1jLsU2XeCO59XWdra_K3DeZMsvaup7LiyXqD8fLnPMXBUVThhpgmZ-_Ue_DyVYOa3nN67XyFE8kakhdpb4VXGfKPpiEU6Bj02Vdoz2ZS"/>
+<div class="absolute inset-0 editorial-overlay"></div>
+<div class="absolute bottom-0 right-0 p-8 w-full text-right">
+<span class="text-secondary-fixed text-xs tracking-widest uppercase font-bold mb-2 block">12 בנובמבר 2024</span>
+<h4 class="text-3xl text-white serif-font font-bold mb-3">קונצרט מס׳ 1: ויוואלדי ומוצרט</h4>
+<p class="text-white/80 text-lg mb-6 max-w-lg mr-0 ml-auto">מנצח: אבנר בירון. סולנים מהשורה הראשונה בביצוע יצירות מופת של גדולי המלחינים.</p>
+<label class="inline-flex items-center justify-center px-10 py-4 bg-white text-primary font-bold tracking-wider cursor-pointer transition-all duration-300 peer-checked:bg-secondary peer-checked:text-white border-none select-none" for="concert-1">
+<span class="peer-checked:hidden">בחר קונצרט</span>
+<span class="hidden peer-checked:inline-flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">check</span> נבחר
+                </span>
+</label>
+</div>
+</div>
+</article>
+<article class="relative w-full group overflow-hidden">
+<input class="hidden peer" id="concert-2" type="checkbox"/>
+<div class="relative h-[450px] w-full">
+<img alt="Italian Baroque" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmqDEbDEqIlFCUi52jcd7xJRvEDg7VOl1faECZHkoPUURMVsb5bFYGsKlaz21oajRWTHy5uRi0XW4GVlRTcSr6J4e2ib1pl3t7Fb-_zTGWL80xN76Hzn25fTce_wPxJHTjBL29VR_vmYTt7cWjW-Pd8ErsGu46BGWQlYOFiePEObn8PgWzq2hvCzurKs3b2InqJnqn7tyVYuGcrt2CeVskjkZGiGkt3fur9SqVBfiD7Q9xc46DKYi1l3ENevv8TJEvTidvFBU-saFO"/>
+<div class="absolute inset-0 editorial-overlay"></div>
+<div class="absolute bottom-0 right-0 p-8 w-full text-right">
+<span class="text-secondary-fixed text-xs tracking-widest uppercase font-bold mb-2 block">05 בדצמבר 2024</span>
+<h4 class="text-3xl text-white serif-font font-bold mb-3">קונצרט מס׳ 2: בארוק איטלקי</h4>
+<p class="text-white/80 text-lg mb-6 max-w-lg mr-0 ml-auto">חגיגה של צבעים וצלילים מוונציה ורומא במאה ה-18, דרך עיניהם של מלחיני התקופה.</p>
+<label class="inline-flex items-center justify-center px-10 py-4 bg-white text-primary font-bold tracking-wider cursor-pointer transition-all duration-300 peer-checked:bg-secondary peer-checked:text-white border-none select-none" for="concert-2">
+<span class="peer-checked:hidden">בחר קונצרט</span>
+<span class="hidden peer-checked:inline-flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">check</span> נבחר
+                </span>
+</label>
+</div>
+</div>
+</article>
+<article class="relative w-full group overflow-hidden">
+<input class="hidden peer" id="concert-3" type="checkbox"/>
+<div class="relative h-[450px] w-full">
+<img alt="String Serenades" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwuCOn5cLLewFatTAoeVxEXdy5xAAKIMvCguiXZ5MgSDXSB-d5LVaxFNDDUocQ5M5vjstpUVil5wxl6sMVOri8gDXkatWK_pTE6I9KkADSodxuvEGRgGii-ZtBAVYasMfJW9RCtcvIf4HmZrTub2CqqJNDWDK8UwX8eLvgiNJsGoqDnRgtht4drIci30TzvLaVfnIqoi7YO3lHaDY2874tEP3DTpJ_NmKi4G2OO5kLmd8L2rtybqdIHsVEGqTYGMmFOhsZNq5nvqXz"/>
+<div class="absolute inset-0 editorial-overlay"></div>
+<div class="absolute bottom-0 right-0 p-8 w-full text-right">
+<span class="text-secondary-fixed text-xs tracking-widest uppercase font-bold mb-2 block">18 בינואר 2025</span>
+<h4 class="text-3xl text-white serif-font font-bold mb-3">קונצרט מס׳ 3: סרנדות למיתרים</h4>
+<p class="text-white/80 text-lg mb-6 max-w-lg mr-0 ml-auto">יצירות רומנטיות מאת צ'ייקובסקי ודבוז'אק בביצוע קאמרי אינטימי ומרגש במיוחד.</p>
+<label class="inline-flex items-center justify-center px-10 py-4 bg-white text-primary font-bold tracking-wider cursor-pointer transition-all duration-300 peer-checked:bg-secondary peer-checked:text-white border-none select-none" for="concert-3">
+<span class="peer-checked:hidden">בחר קונצרט</span>
+<span class="hidden peer-checked:inline-flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">check</span> נבחר
+                </span>
+</label>
+</div>
+</div>
+</article>
+<article class="relative w-full group overflow-hidden">
+<input class="hidden peer" id="concert-4" type="checkbox"/>
+<div class="relative h-[450px] w-full">
+<img alt="Classic Masterpieces" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5vQtDKucclooKgiMaG7n2OM2gdhSzyp3XCpENi42El6zUWozVaPHwNd99c83KfQbIsEWOgWljmGk3e47hbN_FVPXaytXNyo8NWaDZbDQjN-G9y8dn0sqCxE5rGfa5Q7ZqT7loMV2g8Jn7HOsxRllBkZ_Wd1JSkL8Q6nlaLUSa0yd3HlP93GrFIObfAe1yOWkWF0EO2z4SKdoVXuofd3LvjCzS7sbzKcnZBzbLDkEMH7K10vfRNPzGoOBJEYiLwLvZvRPtvZQ7Kb-o"/>
+<div class="absolute inset-0 editorial-overlay"></div>
+<div class="absolute bottom-0 right-0 p-8 w-full text-right">
+<span class="text-secondary-fixed text-xs tracking-widest uppercase font-bold mb-2 block">12 בפברואר 2025</span>
+<h4 class="text-3xl text-white serif-font font-bold mb-3">קונצרט מס׳ 4: הקלאסיקה במיטבה</h4>
+<p class="text-white/80 text-lg mb-6 max-w-lg mr-0 ml-auto">היידן ומוצרט בשיאם. סימפוניות וקונצ'רטי לכלי נשיפה המדגימים את שלמות הצורה.</p>
+<label class="inline-flex items-center justify-center px-10 py-4 bg-white text-primary font-bold tracking-wider cursor-pointer transition-all duration-300 peer-checked:bg-secondary peer-checked:text-white border-none select-none" for="concert-4">
+<span class="peer-checked:hidden">בחר קונצרט</span>
+<span class="hidden peer-checked:inline-flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">check</span> נבחר
+                </span>
+</label>
+</div>
+</div>
+</article>
+<article class="relative w-full group overflow-hidden">
+<input class="hidden peer" id="concert-5" type="checkbox"/>
+<div class="relative h-[450px] w-full">
+<img alt="Modern Music" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLZWLGNKtigGnNWkKMA8u1cW8cONMzOCbnqiXGeW5LgCwlPO4NZhU1cpaAmwKyRoKNfOFfm4P8h2UaSw9p7p7xSboEXtJjPZwtPrRwyPh2zala4ReGny1PPHbowtP-L0DRGB5UxsFuDZKal-PRRBAT34DuikqvrBRotbBleQ5gzcWqZ12L84VZis5XwE5tFrgwCRInfA5EL74QafG8te8SueWDrHz0_tjg6ckUF_kjZghtthA3Z485Z58PaO0rrwrycr1mNX6wRdBp"/>
+<div class="absolute inset-0 editorial-overlay"></div>
+<div class="absolute bottom-0 right-0 p-8 w-full text-right">
+<span class="text-secondary-fixed text-xs tracking-widest uppercase font-bold mb-2 block">20 במרץ 2025</span>
+<h4 class="text-3xl text-white serif-font font-bold mb-3">קונצרט מס׳ 5: מוזיקה בת זמננו</h4>
+<p class="text-white/80 text-lg mb-6 max-w-lg mr-0 ml-auto">דיאלוג מרתק בין יצירות ישראליות חדשות לקלאסיקה מודרנית פורצת דרך.</p>
+<label class="inline-flex items-center justify-center px-10 py-4 bg-white text-primary font-bold tracking-wider cursor-pointer transition-all duration-300 peer-checked:bg-secondary peer-checked:text-white border-none select-none" for="concert-5">
+<span class="peer-checked:hidden">בחר קונצרט</span>
+<span class="hidden peer-checked:inline-flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">check</span> נבחר
+                </span>
+</label>
+</div>
+</div>
+</article>
+<article class="relative w-full group overflow-hidden">
+<input class="hidden peer" id="concert-6" type="checkbox"/>
+<div class="relative h-[450px] w-full">
+<img alt="Mendelssohn" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0MvqznDxiiFJY1d47d7ZVAVE-ntveJVRKKaz7jPc91UpWttT0hf9Sqf30-6BpDtA6aeoD8W5BXHNDSh-s99FZ8Ps9fHbC1klR1tuWQ6mzkI9nMUBhGYU7qiofeEKzydoS0auiCUHuwAxsGG-fVeA0JzFk8MPd2_Wdiklf__WBskClee3LDqb-TaJIZNnjaY2O-5DcsYdrzEM-WOwAQ_AhzuyGTGLSxXIOHJVs122Jv7mvxoaStjBl5mjfQ9DOI7c0Z3rT0T4TcYTn"/>
+<div class="absolute inset-0 editorial-overlay"></div>
+<div class="absolute bottom-0 right-0 p-8 w-full text-right">
+<span class="text-secondary-fixed text-xs tracking-widest uppercase font-bold mb-2 block">15 באפריל 2025</span>
+<h4 class="text-3xl text-white serif-font font-bold mb-3">קונצרט מס׳ 6: מנדלסון ורומנטיקה</h4>
+<p class="text-white/80 text-lg mb-6 max-w-lg mr-0 ml-auto">לילה חלום של ליל קיץ ויצירות מופת רומנטיות נוספות בניצוחו של אבנר בירון.</p>
+<label class="inline-flex items-center justify-center px-10 py-4 bg-white text-primary font-bold tracking-wider cursor-pointer transition-all duration-300 peer-checked:bg-secondary peer-checked:text-white border-none select-none" for="concert-6">
+<span class="peer-checked:hidden">בחר קונצרט</span>
+<span class="hidden peer-checked:inline-flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">check</span> נבחר
+                </span>
+</label>
+</div>
+</div>
+</article>
+<article class="relative w-full group overflow-hidden">
+<input class="hidden peer" id="concert-7" type="checkbox"/>
+<div class="relative h-[450px] w-full">
+<img alt="Soloists" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsw3xvvgcTsKXhDqFwZY8xULaZ_CpbJwFhpcybHhTOkoy0D5Fap26V6xFd2bnNcCXjMGjWr0XiyQItldmiLinSE-MmNv6M43mN4-EUrgJCWqCzYxyu2bU8RPGYhKZ4cfF5NiW6wCxUUM-zPH7yJU1w626ARCJ-ZnSovpz37zcmkP9PhyuXEUv27HrOboi62JYGW7-A5FRkg2JbHbAK73TOAX6ZUO7g3ANxYxrFLaCKfo7I0Z8OxuxfrLovJQOB30ed_2LApa71uOE8"/>
+<div class="absolute inset-0 editorial-overlay"></div>
+<div class="absolute bottom-0 right-0 p-8 w-full text-right">
+<span class="text-secondary-fixed text-xs tracking-widest uppercase font-bold mb-2 block">10 במאי 2025</span>
+<h4 class="text-3xl text-white serif-font font-bold mb-3">קונצרט מס׳ 7: סולני הקאמרטה</h4>
+<p class="text-white/80 text-lg mb-6 max-w-lg mr-0 ml-auto">חברי התזמורת בקדמת הבמה בערב וירטואוזי ומרהיב המציג את הכשרונות הבולטים.</p>
+<label class="inline-flex items-center justify-center px-10 py-4 bg-white text-primary font-bold tracking-wider cursor-pointer transition-all duration-300 peer-checked:bg-secondary peer-checked:text-white border-none select-none" for="concert-7">
+<span class="peer-checked:hidden">בחר קונצרט</span>
+<span class="hidden peer-checked:inline-flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">check</span> נבחר
+                </span>
+</label>
+</div>
+</div>
+</article>
+<article class="relative w-full group overflow-hidden">
+<input class="hidden peer" id="concert-8" type="checkbox"/>
+<div class="relative h-[450px] w-full">
+<img alt="Season Finale" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS8rvcxXOxFhfwJvrZKwdaiRyaKMvmspLZDmWjQMmOnhh7UXsEKGrjkbVEXORy_qbBphrRCgNY6Mu1xtmjiqVVjaL-YfeE-RnfghATPBUkO1dVB4B-l5wJ2_o5uQJrP0ey9LBF3858Vu9SLT9_N6e3GnRun31N5pvE2GK-_wNzfbSHZmDNjA-XBGDcIU5VFbRlmFs7Wt7idop_yXXzHE1L7BpjkkHhp8iGtM8Mp7jS6ZpFPHxiLXbioHtjwbAU7U9FJb0JS8g4ThBd"/>
+<div class="absolute inset-0 editorial-overlay"></div>
+<div class="absolute bottom-0 right-0 p-8 w-full text-right">
+<span class="text-secondary-fixed text-xs tracking-widest uppercase font-bold mb-2 block">22 ביוני 2025</span>
+<h4 class="text-3xl text-white serif-font font-bold mb-3">קונצרט מס׳ 8: קונצרט סיום העונה</h4>
+<p class="text-white/80 text-lg mb-6 max-w-lg mr-0 ml-auto">סיום חגיגי ומפואר עם יצירות מאת בטהובן ומלחינים מובילים נוספים מחיי התרבות.</p>
+<label class="inline-flex items-center justify-center px-10 py-4 bg-white text-primary font-bold tracking-wider cursor-pointer transition-all duration-300 peer-checked:bg-secondary peer-checked:text-white border-none select-none" for="concert-8">
+<span class="peer-checked:hidden">בחר קונצרט</span>
+<span class="hidden peer-checked:inline-flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">check</span> נבחר
+                </span>
+</label>
+</div>
+</div>
+</article>
+</div>
+</section>
+<section class="py-20 px-6 bg-primary text-center">
+<div class="max-w-xl mx-auto">
+<h3 class="text-3xl text-white serif-font mb-8 italic">הבטיחו את מקומכם באולם הקונצרטים</h3>
+<button class="w-full bg-secondary hover:bg-secondary-container text-white py-5 px-16 text-xl font-bold transition-all duration-300 rounded-sm shadow-lg hover:shadow-secondary/20">
+                    שלח הרשמה
+                </button>
+</div>
+</section>
+</main>
+<footer class="w-full py-12 px-6 bg-[#f3f3f3] dark:bg-[#000e24] border-t border-[#c4c6d0]/15">
+<div class="flex flex-col justify-center items-center gap-8 max-w-7xl mx-auto text-center">
+<span class="font-serif text-xl text-[#00234b]">The Israel Camerata Jerusalem</span>
+<div class="flex flex-wrap justify-center gap-x-8 gap-y-4 text-[#1a1c1c] dark:text-slate-400 font-sans text-sm tracking-wide">
+<a class="hover:text-[#00234b] dark:hover:text-amber-200 transition-all underline decoration-outline-variant underline-offset-4" href="#">Privacy Policy</a>
+<a class="hover:text-[#00234b] dark:hover:text-amber-200 transition-all underline decoration-outline-variant underline-offset-4" href="#">Terms of Service</a>
+<a class="hover:text-[#00234b] dark:hover:text-amber-200 transition-all underline decoration-outline-variant underline-offset-4" href="#">Contact Us</a>
+<a class="hover:text-[#00234b] dark:hover:text-amber-200 transition-all underline decoration-outline-variant underline-offset-4" href="#">Concert Archive</a>
+</div>
+<p class="text-[#1a1c1c] dark:text-slate-400 font-sans text-xs opacity-80 uppercase tracking-widest">© 2024 The Israel Camerata Jerusalem. All rights reserved.</p>
+</div>
+</footer>
+
+</body></html>
