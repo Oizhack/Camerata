@@ -1,7 +1,10 @@
 const GOOGLE_SHEETS_ENDPOINT = "https://script.google.com/macros/s/AKfycbzLe5jrCo-n3MBunAYV_MbXfR10A3erUzFqjo7EEPdRBzPno-tRdtt2HH3XwrIjeXQ/exec";
 const MAX_CONCERT_SELECTIONS = 6;
 const form = document.getElementById("registration-form");
-const concertCheckboxes = Array.from(document.querySelectorAll(".concert-checkbox"));
+// Numbered concerts that count toward the "choose 6" rule.
+const concertCheckboxes = Array.from(document.querySelectorAll(".concert-checkbox:not([data-optional])"));
+// All checkboxes (including the optional special concert) — used when collecting the submission.
+const allConcertCheckboxes = Array.from(document.querySelectorAll(".concert-checkbox"));
 const concertCountEl = document.getElementById("concert-selection-count");
 const messageBox = document.getElementById("form-message");
 
@@ -29,14 +32,17 @@ concertCheckboxes.forEach((cb) => cb.addEventListener("change", updateConcertCou
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const selectedConcerts = concertCheckboxes
-    .filter((cb) => cb.checked)
-    .map((cb) => cb.value);
+  const requiredSelected = concertCheckboxes.filter((cb) => cb.checked).length;
 
-  if (selectedConcerts.length < MAX_CONCERT_SELECTIONS) {
-    showMessage(`יש לבחור בדיוק ${MAX_CONCERT_SELECTIONS} קונצרטים כדי להמשיך. בחרת ${selectedConcerts.length}.`, "error");
+  if (requiredSelected < MAX_CONCERT_SELECTIONS) {
+    showMessage(`יש לבחור בדיוק ${MAX_CONCERT_SELECTIONS} קונצרטים כדי להמשיך. בחרת ${requiredSelected}.`, "error");
     return;
   }
+
+  // Collect every checked concert, including the optional special concert.
+  const selectedConcerts = allConcertCheckboxes
+    .filter((cb) => cb.checked)
+    .map((cb) => cb.value);
 
   const formData = {
     secretKey: "CaMeRaTa@JeRuSaLeM#2026",
