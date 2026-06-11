@@ -10,11 +10,15 @@ const form = document.getElementById("registration-form");
 const concertCheckboxes = Array.from(document.querySelectorAll(".concert-checkbox:not([data-optional])"));
 const allConcertCheckboxes = Array.from(document.querySelectorAll(".concert-checkbox"));
 const concertCountEl = document.getElementById("concert-selection-count");
+const stickyCountEl = document.getElementById("sticky-count");
+const stickyCounter = document.getElementById("sticky-counter");
 const messageBox = document.getElementById("form-message");
 
 function updateConcertCount() {
   const selected = concertCheckboxes.filter((cb) => cb.checked).length;
   concertCountEl.textContent = selected;
+  if (stickyCountEl) stickyCountEl.textContent = selected;
+  if (stickyCounter) stickyCounter.classList.toggle("valid", ALLOWED_SELECTIONS.includes(selected));
   // Allow up to the largest track (8); lock the rest only once that cap is hit.
   concertCheckboxes.forEach((cb) => {
     const card = cb.closest(".ccard");
@@ -54,6 +58,7 @@ form.addEventListener("submit", async (event) => {
     phone: form.phone.value.trim(),
     email: form.email.value.trim(),
     subscriptionType: form.subscriptionType.value,
+    city: form.city ? form.city.value : "",
     selectedConcerts,
     submittedAt: new Date().toISOString(),
   };

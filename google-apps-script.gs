@@ -43,14 +43,15 @@ function doPost(e) {
 
     const nextRow = sheet.getLastRow() + 1;
 
-    // Write all fields except phone
-    sheet.getRange(nextRow, 1, 1, 6).setValues([[
+    // Write all fields except phone (column C is filled separately below)
+    sheet.getRange(nextRow, 1, 1, 7).setValues([[
       formattedDate,
       payload.fullName || '',
       '',
       payload.email || '',
       subscriptionLabel,
       concerts,
+      payload.city || '',
     ]]);
 
     // Write phone separately as text to preserve leading zero

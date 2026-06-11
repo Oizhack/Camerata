@@ -21,6 +21,7 @@ Dark, cinematic, theatrical — modelled on the orchestra's official season flye
 ## Behaviour
 - **8 selectable concerts**, two subscription tracks: **6 of 8** (standard) or **8 of 8** (full). Rule in `script.js` → `ALLOWED_SELECTIONS = [6, 8]` (selection caps at 8; submit requires exactly 6 or 8).
 - A **9th "קונצרט בונוס מיוחד" ("ממעמקים")** is shown for information only — no checkbox, not part of the selection.
+- Optional **עיר מועדפת** (preferred city) dropdown in the form → sent as `city` and written to **column G** of the sheet. Requires redeploying `google-apps-script.gs`.
 - Required fields: full name, phone, email, subscription type (single / couple).
 - Submits to the Google Apps Script endpoint (secret-key protected, duplicate-email detection, writes a row to Google Sheets).
 

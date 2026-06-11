@@ -68,13 +68,13 @@
 
     /* ─── HERO ──────────────────────────────────────────── */
     .hero{position:relative;height:clamp(520px,90vh,820px);overflow:hidden;display:flex;align-items:center}
-    .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%;filter:brightness(.46) saturate(1.05) contrast(1.05);transform:scale(1.04);transition:transform 10s ease}
-    .hero:hover .hero-img{transform:scale(1)}
+    .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 56%;filter:brightness(.62) saturate(1.05) contrast(1.03);transform:scale(1.5);transform-origin:50% 56%;transition:transform 9s ease}
+    .hero:hover .hero-img{transform:scale(1.56)}
     .hero-grad{position:absolute;inset:0;background:
-      radial-gradient(120% 80% at 50% -8%, rgba(230,198,132,.20), transparent 55%),
-      linear-gradient(90deg, rgba(12,11,9,.94) 0%, rgba(12,11,9,.62) 42%, rgba(12,11,9,.5) 100%),
-      linear-gradient(0deg, var(--bg) 3%, rgba(12,11,9,.2) 30%, transparent 55%)}
-    .hero-in{position:relative;z-index:5;max-width:1240px;width:100%;margin:0 auto;padding:0 2.5rem}
+      radial-gradient(130% 90% at 50% 0%, rgba(230,198,132,.14), transparent 55%),
+      linear-gradient(to left, rgba(12,11,9,.9) 0%, rgba(12,11,9,.48) 40%, rgba(12,11,9,.12) 70%, transparent 100%),
+      linear-gradient(0deg, var(--bg) 2%, rgba(12,11,9,.28) 26%, transparent 55%)}
+    .hero-in{position:relative;z-index:5;max-width:1240px;width:100%;margin:0 auto;padding:0 2.5rem;direction:rtl;text-align:right}
     .eyebrow{display:inline-block;font-size:.66rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);padding-bottom:.55rem;margin-bottom:1.4rem;border-bottom:1px solid var(--line-strong)}
     .hero h1{font-family:'Heebo',sans-serif;font-weight:900;font-size:clamp(2.8rem,7vw,5.4rem);line-height:1.02;color:#fff;letter-spacing:-.01em;margin-bottom:1.3rem;text-shadow:0 2px 40px rgba(0,0,0,.5)}
     .hero h1 .em{background:linear-gradient(180deg,var(--gold-pale),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -132,8 +132,8 @@
     .crew{font-size:.78rem;color:var(--cream);padding-top:.6rem;border-top:1px solid var(--line)}
     .crew b{color:var(--gold);font-weight:600}
     .crew .note{color:var(--muted)}
-    .dates{display:flex;flex-wrap:wrap;gap:.4rem;padding-top:.7rem}
-    .chip{font-size:.62rem;letter-spacing:.03em;color:var(--gold-pale);border:1px solid var(--line);padding:.25rem .55rem;background:rgba(201,163,92,.05);white-space:nowrap}
+    .dates{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;padding-top:.7rem}
+    .chip{font-size:.62rem;letter-spacing:.03em;color:var(--gold-pale);border:1px solid var(--line);padding:.32rem .55rem;background:rgba(201,163,92,.05);white-space:nowrap}
     .chip b{color:var(--muted);font-weight:400;margin-right:.3rem}
 
     /* ─── SPECIAL CONCERT ───────────────────────────────── */
@@ -152,15 +152,20 @@
 
     /* ─── REGISTRATION FORM ─────────────────────────────── */
     .reg{max-width:1240px;margin:0 auto;padding:0 2.5rem 5rem}
-    .formcard{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--gold);padding:2.75rem}
-    .formcard .fhd{font-family:'Frank Ruhl Libre',serif;font-weight:900;font-size:clamp(1.5rem,3vw,2rem);color:var(--cream);margin-bottom:.4rem}
-    .formcard .fsub{font-size:.92rem;color:var(--muted);margin-bottom:2.2rem}
-    .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:1.7rem 2.2rem}
+    .formcard{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--gold);padding:2.25rem 2.5rem;max-width:760px;margin:0 auto}
+    .formcard .fhd{font-family:'Frank Ruhl Libre',serif;font-weight:900;font-size:clamp(1.4rem,2.6vw,1.85rem);color:var(--cream);margin-bottom:.35rem}
+    .formcard .fsub{font-size:.92rem;color:var(--muted);margin-bottom:1.6rem}
+    .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:1.15rem 1.4rem;align-items:end}
     .fgrid .full{grid-column:1/-1}
-    .fl{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.5rem}
-    .fi{width:100%;background:transparent;border:none;border-bottom:1.5px solid var(--line);padding:.55rem 0;color:var(--cream);font-size:1rem;outline:none;transition:border-color .25s}
+    .fl{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.4rem}
+    .fi,.fselect{width:100%;background:transparent;border:none;border-bottom:1.5px solid var(--line);padding:.5rem 0;color:var(--cream);font-size:1rem;outline:none;transition:border-color .25s}
     .fi::placeholder{color:#5b554d}
-    .fi:focus{border-bottom-color:var(--gold)}
+    .fi:focus,.fselect:focus{border-bottom-color:var(--gold)}
+    /* dark custom select for the optional city */
+    .fselect{appearance:none;-webkit-appearance:none;cursor:pointer;padding-left:1.4rem;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23c9a35c' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat:no-repeat;background-position:left .1rem center}
+    .fselect option{background:var(--panel);color:var(--cream)}
     .pills{display:flex;gap:.8rem}
     .pill{flex:1;display:flex;align-items:center;justify-content:center;gap:.6rem;border:1.5px solid var(--line);padding:.85rem;color:var(--cream);font-size:.98rem;cursor:pointer;transition:border-color .2s,background .2s}
     .pill:hover{border-color:var(--gold)}
@@ -175,13 +180,25 @@
     #form-message.error{border-color:var(--err);background:rgba(217,138,138,.08);color:var(--err)}
     #form-message.info{border-color:var(--gold);background:rgba(201,163,92,.08);color:var(--gold-pale)}
 
-    .submit-btn{grid-column:1/-1;background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold));background-size:200% 100%;color:#1a1206;border:none;padding:1.1rem;font-family:'Frank Ruhl Libre',serif;font-weight:900;font-size:1.2rem;letter-spacing:.04em;cursor:pointer;transition:filter .25s}
+    .submit-btn{grid-column:1/-1;justify-self:start;min-width:240px;background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold));background-size:200% 100%;color:#1a1206;border:none;padding:.9rem 2.2rem;margin-top:.4rem;font-family:'Frank Ruhl Libre',serif;font-weight:900;font-size:1.1rem;letter-spacing:.04em;cursor:pointer;transition:filter .25s}
     .submit-btn:hover{filter:brightness(1.06);animation:shimmer 2s linear infinite}
+
+    /* ── STICKY SELECTION COUNTER ── */
+    .sticky-counter{position:fixed;z-index:200;bottom:1.1rem;left:1.1rem;display:flex;align-items:center;gap:.55rem;background:rgba(20,18,16,.92);border:1px solid var(--line-strong);backdrop-filter:blur(8px);padding:.55rem .95rem;border-radius:999px;color:var(--cream);text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.45);transition:border-color .25s,background .25s}
+    .sticky-counter:hover{border-color:var(--gold)}
+    .sticky-counter .sc-num{font-weight:800;color:var(--gold);font-size:1.15rem;min-width:1.1em;text-align:center}
+    .sticky-counter .sc-label{font-size:.85rem;color:var(--muted);letter-spacing:.02em}
+    .sticky-counter.valid{background:linear-gradient(90deg,var(--gold),var(--gold-light));border-color:var(--gold)}
+    .sticky-counter.valid .sc-num,.sticky-counter.valid .sc-label{color:#1a1206}
+
+    /* ── FOOTER extra lines ── */
+    .footer-tagline{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:1.3rem}
+    .footer-phone{font-size:1.02rem;color:var(--cream);letter-spacing:.04em;margin-bottom:1.4rem}
 
     /* ─── FOOTER ────────────────────────────────────────── */
     .site-footer{border-top:1px solid var(--line);background:#080706;text-align:center;padding:2.8rem 2rem}
     .footer-logo{font-family:'Frank Ruhl Libre',serif;font-size:1.3rem;color:var(--gold-light);margin-bottom:.9rem}
-    .footer-cta{font-size:.95rem;color:var(--cream);letter-spacing:.03em;margin-bottom:1.4rem}
+    .footer-cta{font-size:.95rem;color:var(--cream);letter-spacing:.03em;margin-bottom:.5rem}
     .footer-cta a{color:var(--gold);text-decoration:none}
     .footer-cta a:hover{text-decoration:underline}
     .footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;margin-bottom:1.4rem}
@@ -214,7 +231,7 @@
     .ctag{font-size:.8rem;letter-spacing:.1em}
     .prog{font-size:1rem;line-height:1.8}
     .crew{font-size:.95rem}
-    .chip{font-size:.82rem;display:inline-flex;gap:.4rem;align-items:baseline}
+    .chip{font-size:.82rem;display:flex;justify-content:center;align-items:baseline;gap:.4rem}
     .chip b{font-size:.82rem;margin:0}
     .fl{font-size:.82rem;letter-spacing:.1em}
     .counter{font-size:1rem}
@@ -441,15 +458,25 @@
         <div class="fgrid">
           <div>
             <label class="fl" for="full-name">שם מלא</label>
-            <input class="fi" id="full-name" name="fullName" type="text" autocomplete="name" placeholder="ישראל ישראלי" required />
+            <input class="fi" id="full-name" name="fullName" type="text" autocomplete="name" required />
           </div>
           <div>
             <label class="fl" for="phone">טלפון</label>
-            <input class="fi" id="phone" name="phone" type="tel" autocomplete="tel" placeholder="050-0000000" required />
+            <input class="fi" id="phone" name="phone" type="tel" autocomplete="tel" required />
           </div>
-          <div class="full">
+          <div>
             <label class="fl" for="email">אימייל</label>
-            <input class="fi" id="email" name="email" type="email" autocomplete="email" placeholder="name@example.com" required />
+            <input class="fi" id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+          <div>
+            <label class="fl" for="city">עיר מועדפת · לא חובה</label>
+            <select class="fselect" id="city" name="city">
+              <option value="">אין העדפה</option>
+              <option value="תל אביב">תל אביב — מוזיאון ת״א</option>
+              <option value="רחובות">רחובות — מכון ויצמן</option>
+              <option value="ירושלים">ירושלים — ימק״א</option>
+              <option value="זכרון יעקב">זכרון יעקב — אלמא</option>
+            </select>
           </div>
           <div class="full">
             <span class="fl">סוג מנוי</span>
@@ -466,10 +493,18 @@
 
   </form>
 
+  <!-- ── STICKY SELECTION COUNTER ── -->
+  <a class="sticky-counter" id="sticky-counter" href="#registration-form" aria-live="polite">
+    <span class="sc-num" id="sticky-count">0</span>
+    <span class="sc-label">נבחרו · בחרו 6 או 8</span>
+  </a>
+
   <!-- ── FOOTER ── -->
   <footer class="site-footer">
-    <p class="footer-logo">הקאמרטה הישראלית ירושלים · כלים וקולות</p>
-    <p class="footer-cta">להזמנת מנויים וכרטיסים: <a href="https://jcamerata.smarticket.co.il" target="_blank" rel="noopener">jcamerata.smarticket.co.il</a> · טל׳ 02-5020503</p>
+    <p class="footer-logo">הקאמרטה הישראלית ירושלים</p>
+    <p class="footer-tagline">סדרת כלים וקולות · העונה ה-43</p>
+    <p class="footer-cta">להזמנת מנויים וכרטיסים: <a href="https://jcamerata.smarticket.co.il" target="_blank" rel="noopener">jcamerata.smarticket.co.il</a></p>
+    <p class="footer-phone">טל׳ 02-5020503</p>
     <div class="footer-links">
       <a href="#">מדיניות פרטיות</a>
       <a href="#">תנאי שימוש</a>
