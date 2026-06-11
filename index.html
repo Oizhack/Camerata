@@ -144,6 +144,8 @@
     .special-hd{font-family:'Frank Ruhl Libre',serif;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:2.4rem 0 1rem;padding-bottom:.7rem;border-bottom:1px solid var(--line)}
     .special-hd span{color:var(--muted);font-weight:400;letter-spacing:0;text-transform:none;font-family:'Assistant'}
     .ccard.special{border-color:var(--line-strong);background:linear-gradient(180deg,var(--panel-2),var(--panel))}
+    .ccard.special.info-only{cursor:default}
+    .ccard.special.info-only:hover{transform:none;border-color:var(--line-strong);box-shadow:none}
     .ccard.special .num{-webkit-text-stroke:1.5px var(--red-light);color:transparent;font-size:2.3rem}
     .ccard.special:has(.concert-checkbox:checked){border-color:var(--gold)}
     .ccard.special:has(.concert-checkbox:checked) .num{-webkit-text-stroke:0;color:var(--red-light)}
@@ -249,7 +251,7 @@
       <div>
         <p class="venues-title">כיצד ההרשמה פועלת</p>
         <ol class="steps">
-          <li>בחרו 6 קונצרטים מתוך 9 שבסדרה</li>
+          <li>בחרו 6 קונצרטים מתוך 8 שבסדרה</li>
           <li>מלאו פרטים אישיים ובחרו סוג מנוי — יחיד או זוגי</li>
           <li>ההרשמה נשמרת ומועברת לצוות האדמיניסטרציה</li>
         </ol>
@@ -272,7 +274,7 @@
     <div class="wrap">
       <div class="sec-hd">
         <div>
-          <span class="kick">רפרטואר העונה · 9 קונצרטים לבחירה</span>
+          <span class="kick">רפרטואר העונה · 8 קונצרטים לבחירה + קונצרט בונוס</span>
           <h2>בחרו את הקונצרטים שלכם</h2>
         </div>
         <div class="counter"><em id="concert-selection-count">0</em> / 6 נבחרו</div>
@@ -394,23 +396,20 @@
 
       </div><!-- /cgrid -->
 
-      <!-- SPECIAL (9th concert — counts toward the selection) -->
-      <p class="special-hd">קונצרט מיוחד <span>· ממעמקים — נכלל בבחירת הקונצרטים</span></p>
-      <label class="ccard special">
-        <input class="concert-checkbox" type="checkbox" value="קונצרט 9 (מיוחד): ממעמקים" />
+      <!-- BONUS CONCERT (info only — NOT part of the choose-6 selection) -->
+      <p class="special-hd">קונצרט בונוס מיוחד לעונה <span>· לצפייה בלבד — אינו חלק מבחירת המנוי</span></p>
+      <div class="ccard special info-only">
         <div class="special-row">
           <div class="cimg"><img src="assets/sacred.jpg" alt="ממעמקים" loading="lazy" /><div class="ov"></div></div>
           <div class="cbody">
-            <span class="num">09</span>
-            <span class="cbadge">✓</span>
-            <span class="special-badge">קונצרט מיוחד</span>
+            <span class="special-badge">קונצרט בונוס</span>
             <h3 class="ctitle">ממעמקים</h3>
             <p class="prog"><b>באך</b> / קנטטות BWV 150 ו-131 · <b>הנדל</b> / קונצ׳רטו גרוסו · <b>קמינסקי</b> / מוטט · <b>צבי אבני</b> / ממעמקים · <b>אודי פרלמן</b> / פרק תהילים פ״ו.</p>
             <div class="crew"><b>בהשתתפות:</b> אנסמבל ססיליה <span class="note">· מנצח יפורסם</span></div>
             <div class="dates"><span class="chip"><b>ת״א</b>6.3</span><span class="chip"><b>רחובות</b>7.3</span><span class="chip"><b>י-ם</b>8.3</span><span class="chip"><b>זכרון</b>9.3</span></div>
           </div>
         </div>
-      </label>
+      </div>
     </div><!-- /wrap -->
 
     <!-- ── REGISTRATION ── -->

@@ -12,14 +12,15 @@ Dark, cinematic, theatrical — modelled on the orchestra's official season flye
 - **Typography:** `Heebo` (900) for the display headline, `Frank Ruhl Libre` for titles, `Assistant` for body. RTL throughout.
 - **Atmosphere:** full-bleed hero of the real orchestra (red curtain), spotlight radial glow, faint SVG film-grain overlay, gold hairline borders, staggered fade-up load animations.
 - **Concerts:** numbered cards (01–09) with large gold numerals so they're easy to choose; themed photo, composer-gold / work-cream program lines, conductor/soloist, and per-city date chips (ת״א · רחובות · י-ם · זכרון). Selected cards get a gold glow + check badge.
-- **Special concert "ממעמקים" (09)** is a wide, red-accented card; it now **counts toward the selection** like the others.
+- **Bonus concert "ממעמקים"** is a wide, red-accented, **info-only** card (no checkbox) — shown for information, not part of the choose-6 selection.
 - **Imagery:** in `assets/`. Real Camerata photos under `assets/camerata/` (Wikimedia, CC). Per-concert/thematic photos sourced from Unsplash / Openverse (CC). The hero uses `assets/camerata/camerata-wiki.jpg`.
 
 > Future design iterations should use the **frontend-design** skill (plugin) to keep
 > quality high and the aesthetic intentional.
 
 ## Behaviour
-- **9 concerts**, visitor selects **exactly 6** (rule in `script.js` → `MAX_CONCERT_SELECTIONS`; once 6 are picked the rest dim out). *Open question — confirm whether the real subscription is 6-of-9, all 9, or another count.*
+- **8 selectable concerts**, visitor selects **exactly 6** (rule in `script.js` → `MAX_CONCERT_SELECTIONS`; once 6 are picked the rest dim out).
+- A **9th "קונצרט בונוס מיוחד" ("ממעמקים")** is shown for information only — no checkbox, not part of the selection.
 - Required fields: full name, phone, email, subscription type (single / couple).
 - Submits to the Google Apps Script endpoint (secret-key protected, duplicate-email detection, writes a row to Google Sheets).
 
@@ -33,7 +34,6 @@ Dark, cinematic, theatrical — modelled on the orchestra's official season flye
 - Pushed to GitHub (`Oizhack/Camerata`).
 
 ### 🔲 Remaining / open
-- [ ] Confirm the selection rule (6-of-9 vs all 9 vs other).
 - [ ] Replace any thematic/stock photos with official Camerata production photos where available.
 - [ ] Real footer links (privacy / terms / contact / archive).
 - [ ] Confirm Netlify auto-deploys the new design from GitHub.
