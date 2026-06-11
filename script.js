@@ -1,9 +1,10 @@
 const GOOGLE_SHEETS_ENDPOINT = "https://script.google.com/macros/s/AKfycbzLe5jrCo-n3MBunAYV_MbXfR10A3erUzFqjo7EEPdRBzPno-tRdtt2HH3XwrIjeXQ/exec";
 const MAX_CONCERT_SELECTIONS = 6;
 const form = document.getElementById("registration-form");
-// Numbered concerts that count toward the "choose 6" rule.
+// All 9 concerts are selectable and count toward the "choose 6" rule.
+// (data-optional is supported but currently unused — kept so a concert can be
+// excluded from the count in the future without touching this logic.)
 const concertCheckboxes = Array.from(document.querySelectorAll(".concert-checkbox:not([data-optional])"));
-// All checkboxes (including the optional special concert) — used when collecting the submission.
 const allConcertCheckboxes = Array.from(document.querySelectorAll(".concert-checkbox"));
 const concertCountEl = document.getElementById("concert-selection-count");
 const messageBox = document.getElementById("form-message");

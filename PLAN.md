@@ -1,38 +1,49 @@
 # Camerata Landing Page — Plan
 
 ## Goal
-Build and deploy a Hebrew RTL landing page for the Israel Camerata Jerusalem that collects season registrations and writes them to Google Sheets.
+A Hebrew RTL landing page for the **Israel Camerata Jerusalem** that presents the
+2026–2027 "כלים וקולות" subscription season (the orchestra's 43rd), lets visitors
+choose concerts, and writes registrations to Google Sheets.
+
+## Design language (redesigned June 2026, in the spirit of the official flyers)
+Dark, cinematic, theatrical — modelled on the orchestra's official season flyers
+(`Examples of flayers/`).
+- **Palette:** near-black `#0c0b09` + warm gold `#c9a35c` / `#e6c684` + red-velvet accent `#8d1f1f` + cream text. Tokens live in `:root` in `index.html`.
+- **Typography:** `Heebo` (900) for the display headline, `Frank Ruhl Libre` for titles, `Assistant` for body. RTL throughout.
+- **Atmosphere:** full-bleed hero of the real orchestra (red curtain), spotlight radial glow, faint SVG film-grain overlay, gold hairline borders, staggered fade-up load animations.
+- **Concerts:** numbered cards (01–09) with large gold numerals so they're easy to choose; themed photo, composer-gold / work-cream program lines, conductor/soloist, and per-city date chips (ת״א · רחובות · י-ם · זכרון). Selected cards get a gold glow + check badge.
+- **Special concert "ממעמקים" (09)** is a wide, red-accented card; it now **counts toward the selection** like the others.
+- **Imagery:** in `assets/`. Real Camerata photos under `assets/camerata/` (Wikimedia, CC). Per-concert/thematic photos sourced from Unsplash / Openverse (CC). The hero uses `assets/camerata/camerata-wiki.jpg`.
+
+> Future design iterations should use the **frontend-design** skill (plugin) to keep
+> quality high and the aesthetic intentional.
+
+## Behaviour
+- **9 concerts**, visitor selects **exactly 6** (rule in `script.js` → `MAX_CONCERT_SELECTIONS`; once 6 are picked the rest dim out). *Open question — confirm whether the real subscription is 6-of-9, all 9, or another count.*
+- Required fields: full name, phone, email, subscription type (single / couple).
+- Submits to the Google Apps Script endpoint (secret-key protected, duplicate-email detection, writes a row to Google Sheets).
 
 ## Status
 
 ### ✅ Completed
-- Full Hebrew RTL landing page (`index.html`) with luxury editorial design
-  - Midnight navy + antique gold color scheme
-  - Frank Ruhl Libre + Cormorant Garamond typography
-  - Fully responsive — desktop, tablet, mobile (iPhone 390px)
-  - Animated hero section, concert grid, elegant form
-- 8 concert cards with image, description, conductor and soloist per concert
-- Client-side form validation (`script.js`):
-  - Exactly 6 concerts must be selected
-  - Required fields: name, phone, email, subscription type
-- Google Sheets integration (`google-apps-script.gs`):
-  - Secret key protection (`CaMeRaTa@JeRuSaLeM#2026`)
-  - Duplicate email detection
-  - Date formatted as `dd/MM/yyyy HH:mm` (Asia/Jerusalem)
-  - Subscription type in Hebrew (יחיד / זוגי)
-  - Concert numbers only (e.g. `1, 3, 5`)
-  - Phone stored as text (leading zero preserved)
-- Google Apps Script deployed at `Anyone` access with public URL
+- Dark cinematic redesign of `index.html` (hero, intro/how-it-works + venues, 9 numbered concert cards, registration form, footer); fully responsive.
+- Real season content for all 9 concerts (titles, programs, conductors/soloists, per-city dates) — Hebrew.
+- Image set downloaded into `assets/` (incl. genuine orchestra photos).
+- `script.js` selection + validation + Sheets submission intact.
+- Pushed to GitHub (`Oizhack/Camerata`).
 
-### 🔲 Remaining
-- [ ] Push to GitHub
-- [ ] Deploy to Vercel
-- [ ] Custom domain (`jcamerata.com` or subdomain)
+### 🔲 Remaining / open
+- [ ] Confirm the selection rule (6-of-9 vs all 9 vs other).
+- [ ] Replace any thematic/stock photos with official Camerata production photos where available.
+- [ ] Real footer links (privacy / terms / contact / archive).
+- [ ] Confirm Netlify auto-deploys the new design from GitHub.
 
 ## Files
 | File | Purpose |
 |------|---------|
-| `index.html` | Landing page — full UI, styles, RTL Hebrew |
-| `script.js` | Form validation + Google Sheets submission |
+| `index.html` | Landing page — full dark-theme UI, styles, RTL Hebrew, 9 concerts |
+| `script.js` | Concert selection (choose 6), validation, Google Sheets submission |
 | `google-apps-script.gs` | Server-side Apps Script — validates, deduplicates, writes to sheet |
-| `Invitation.txt` | Original invitation text (source material) |
+| `assets/` | Photography (hero, per-concert, `assets/camerata/` real orchestra photos) |
+| `Invitation.txt`, `real_info.txt` | Source material (Hebrew season details) — local only |
+| `Examples of flayers/` | Official PDF flyers used as the design reference — local only |
