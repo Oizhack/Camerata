@@ -6,10 +6,6 @@
   <title>הקאמרטה הישראלית ירושלים — הרשמה לעונה 2026–2027 · כלים וקולות</title>
   <meta name="description" content="עונה חדשה מחכה לכם — הרשמה לסדרת המנויים 'כלים וקולות' של הקאמרטה הישראלית ירושלים, העונה ה-43. 8 קונצרטים וקונצרט מיוחד." />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@400;700;800;900&family=Assistant:wght@300;400;600&display=swap" rel="stylesheet" />
-
   <style>
     /* ─── RESET ─────────────────────────────────────────── */
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -210,6 +206,30 @@
       .sec-hd{flex-direction:column;gap:.6rem}
       .pills{flex-direction:column}
     }
+
+    /* ── USER OVERRIDES: Arial everywhere + readable minimum sizes ── */
+    *{font-family:Arial,"Arial Hebrew","Helvetica Neue",Helvetica,sans-serif !important}
+    body{font-size:16px}
+    .eyebrow,.intro-kick,.sec-hd .kick{font-size:.82rem;letter-spacing:.16em}
+    .ctag{font-size:.8rem;letter-spacing:.1em}
+    .prog{font-size:1rem;line-height:1.8}
+    .crew{font-size:.95rem}
+    .chip{font-size:.82rem;display:inline-flex;gap:.4rem;align-items:baseline}
+    .chip b{font-size:.82rem;margin:0}
+    .fl{font-size:.82rem;letter-spacing:.1em}
+    .counter{font-size:1rem}
+    .steps li{font-size:1.05rem;line-height:1.6}
+    .venues li{font-size:1.02rem}
+    .venues li span{font-size:.95rem}
+    .special-badge{font-size:.8rem}
+    .special-hd{font-size:.92rem;letter-spacing:.08em}
+    .brand small{font-size:.78rem;letter-spacing:.14em}
+    .footer-links a{font-size:.82rem}
+    .footer-copy{font-size:.78rem}
+    .fsub{font-size:1rem}
+    .footer-cta{font-size:1.02rem}
+    .ctitle{font-size:1.55rem}
+    .intro p{font-size:1.08rem}
   </style>
 </head>
 
@@ -251,9 +271,10 @@
       <div>
         <p class="venues-title">כיצד ההרשמה פועלת</p>
         <ol class="steps">
-          <li>בחרו 6 קונצרטים מתוך 8 שבסדרה</li>
-          <li>מלאו פרטים אישיים ובחרו סוג מנוי — יחיד או זוגי</li>
-          <li>ההרשמה נשמרת ומועברת לצוות האדמיניסטרציה</li>
+          <li>מלאו את פרטיכם האישיים</li>
+          <li>בחרו סוג מנוי — יחיד או זוגי</li>
+          <li>שני מסלולי מנוי לבחירתכם: בחירת 6 קונצרטים מתוך 8 | בחירת 8 קונצרטים מתוך 8 — במידה ואין ברשותכם יתרות.</li>
+          <li>להמשך טיפול והשלמת התשלום.</li>
         </ol>
       </div>
       <div>
@@ -277,7 +298,7 @@
           <span class="kick">רפרטואר העונה · 8 קונצרטים לבחירה + קונצרט בונוס</span>
           <h2>בחרו את הקונצרטים שלכם</h2>
         </div>
-        <div class="counter"><em id="concert-selection-count">0</em> / 6 נבחרו</div>
+        <div class="counter"><em id="concert-selection-count">0</em> נבחרו · בחרו 6 או 8</div>
       </div>
 
       <div class="cgrid">
@@ -292,7 +313,7 @@
             <h3 class="ctitle">בטהובן ובני דורו</h3>
             <p class="prog"><b>קורלי</b> / לה פוליה · <b>בטהובן</b> / סימפוניה מס׳ 2 · <b>ורניצקי</b> / סימפוניה אופ׳ 36 — 200 שנה למותו של בטהובן.</p>
             <div class="crew"><b>מנצח:</b> ריינהרד גבל (גרמניה)</div>
-            <div class="dates"><span class="chip"><b>ת״א</b>16.10</span><span class="chip"><b>רחובות</b>18.10</span><span class="chip"><b>י-ם</b>19.10</span><span class="chip"><b>זכרון</b>20.10</span></div>
+            <div class="dates"><span class="chip"><b>תל אביב</b>16.10</span><span class="chip"><b>רחובות</b>18.10</span><span class="chip"><b>ירושלים</b>19.10</span><span class="chip"><b>זכרון יעקב</b>20.10</span></div>
           </div>
         </label>
 
@@ -306,7 +327,7 @@
             <h3 class="ctitle">ערב צ׳לו</h3>
             <p class="prog"><b>היידן</b> / סימפוניה מס׳ 81 · <b>בוקריני</b> / קונצ׳רטו לצ׳לו · <b>צ׳ייקובסקי</b> / וריאציות רוקוקו · <b>ויינברג</b> / סימפוניה קאמרית מס׳ 1.</p>
             <div class="crew"><b>סולן:</b> <span class="note">צ׳לן — יפורסם בהמשך</span></div>
-            <div class="dates"><span class="chip"><b>ת״א</b>20.11</span><span class="chip"><b>רחובות</b>22.11</span><span class="chip"><b>י-ם</b>23.11</span><span class="chip"><b>זכרון</b>24.11</span></div>
+            <div class="dates"><span class="chip"><b>תל אביב</b>20.11</span><span class="chip"><b>רחובות</b>22.11</span><span class="chip"><b>ירושלים</b>23.11</span><span class="chip"><b>זכרון יעקב</b>24.11</span></div>
           </div>
         </label>
 
@@ -320,7 +341,7 @@
             <h3 class="ctitle">מעיין ליכט, סופרן</h3>
             <p class="prog">ערב מיוחד עם הסופרן מעיין ליכט. התוכנית המלאה תפורסם בהמשך.</p>
             <div class="crew"><b>סולן:</b> מעיין ליכט — סופרן</div>
-            <div class="dates"><span class="chip"><b>ת״א</b>11–12.12</span><span class="chip"><b>רחובות</b>13.12</span><span class="chip"><b>י-ם</b>14.12</span><span class="chip"><b>זכרון</b>15.12</span></div>
+            <div class="dates"><span class="chip"><b>תל אביב</b>11–12.12</span><span class="chip"><b>רחובות</b>13.12</span><span class="chip"><b>ירושלים</b>14.12</span><span class="chip"><b>זכרון יעקב</b>15.12</span></div>
           </div>
         </label>
 
@@ -334,7 +355,7 @@
             <h3 class="ctitle">האנסמבל הקולי הישראלי</h3>
             <p class="prog"><b>בוקסטהודה</b> / קנטטה BuxWV 15 · <b>פוצ׳יני</b> / כריזנטמות · <b>פוצ׳יני</b> / מיסה די גלוריה.</p>
             <div class="crew"><b>בהשתתפות:</b> האנסמבל הקולי הישראלי <span class="note">· סולנים יפורסמו</span></div>
-            <div class="dates"><span class="chip"><b>ת״א</b>1.1</span><span class="chip"><b>רחובות</b>3.1</span><span class="chip"><b>י-ם</b>4.1</span><span class="chip"><b>זכרון</b>5.1</span></div>
+            <div class="dates"><span class="chip"><b>תל אביב</b>1.1</span><span class="chip"><b>רחובות</b>3.1</span><span class="chip"><b>ירושלים</b>4.1</span><span class="chip"><b>זכרון יעקב</b>5.1</span></div>
           </div>
         </label>
 
@@ -348,7 +369,7 @@
             <h3 class="ctitle">אוצרות איטלקיים חבויים</h3>
             <p class="prog">סולני הקאמרטה, ללא מנצח. <b>ויוואלדי</b> · <b>מונטנארי</b> / קונצ׳רטו גרוסו · <b>רספיגי</b> / אריות ומחולות עתיקים · <b>קורלי</b> / קונצ׳רטו גרוסו אופ׳ 6.</p>
             <div class="crew"><b>ביצוע:</b> סולני הקאמרטה <span class="note">· ללא מנצח</span></div>
-            <div class="dates"><span class="chip"><b>ת״א</b>10.2</span><span class="chip"><b>רחובות</b>14.2</span><span class="chip"><b>י-ם</b>15.2</span><span class="chip"><b>זכרון</b>16.2</span></div>
+            <div class="dates"><span class="chip"><b>תל אביב</b>10.2</span><span class="chip"><b>רחובות</b>14.2</span><span class="chip"><b>ירושלים</b>15.2</span><span class="chip"><b>זכרון יעקב</b>16.2</span></div>
           </div>
         </label>
 
@@ -362,7 +383,7 @@
             <h3 class="ctitle">קולות לילה</h3>
             <p class="prog"><b>היידן</b> / סימפוניה מס׳ 8 "הערב" · שירים עבריים בעיבוד לזמרת ולתזמורת · <b>שנברג</b> / ליל הוד.</p>
             <div class="crew"><b>סולנית:</b> דניאלה סקורקה — סופרן</div>
-            <div class="dates"><span class="chip"><b>ת״א</b>9.4</span><span class="chip"><b>רחובות</b>11.4</span><span class="chip"><b>י-ם</b>12.4</span><span class="chip"><b>זכרון</b>13.4</span></div>
+            <div class="dates"><span class="chip"><b>תל אביב</b>9.4</span><span class="chip"><b>רחובות</b>11.4</span><span class="chip"><b>ירושלים</b>12.4</span><span class="chip"><b>זכרון יעקב</b>13.4</span></div>
           </div>
         </label>
 
@@ -376,7 +397,7 @@
             <h3 class="ctitle">נטשה שר, כינור</h3>
             <p class="prog"><b>מוצרט</b> / סימפוניה מס׳ 33 · <b>ויינברג</b> / קונצ׳רטינו לכינור · <b>איל אדלר</b> / בכורה עולמית · <b>דבוז׳ק</b> / סרנדה לכלי קשת.</p>
             <div class="crew"><b>סולנית:</b> נטשה שר — כינור</div>
-            <div class="dates"><span class="chip"><b>ת״א</b>15.5</span><span class="chip"><b>י-ם</b>16.5</span><span class="chip"><b>זכרון</b>17.5</span><span class="chip"><b>רחובות</b>20.5</span></div>
+            <div class="dates"><span class="chip"><b>תל אביב</b>15.5</span><span class="chip"><b>ירושלים</b>16.5</span><span class="chip"><b>זכרון יעקב</b>17.5</span><span class="chip"><b>רחובות</b>20.5</span></div>
           </div>
         </label>
 
@@ -390,7 +411,7 @@
             <h3 class="ctitle">ערב גיטרה</h3>
             <p class="prog"><b>סטרווינסקי</b> / מחולות קונצרטנטיים · <b>רודריגו</b> / קונצ׳רטו דה ארנחואס · <b>מוצרט</b> / "לינץ" · <b>אלבניס</b> / אסטוריאס.</p>
             <div class="crew"><b>סולן:</b> <span class="note">גיטריסט — יפורסם בהמשך</span></div>
-            <div class="dates"><span class="chip"><b>ת״א</b>5.6</span><span class="chip"><b>רחובות</b>6.6</span><span class="chip"><b>י-ם</b>7.6</span><span class="chip"><b>זכרון</b>8.6</span></div>
+            <div class="dates"><span class="chip"><b>תל אביב</b>5.6</span><span class="chip"><b>רחובות</b>6.6</span><span class="chip"><b>ירושלים</b>7.6</span><span class="chip"><b>זכרון יעקב</b>8.6</span></div>
           </div>
         </label>
 
@@ -406,7 +427,7 @@
             <h3 class="ctitle">ממעמקים</h3>
             <p class="prog"><b>באך</b> / קנטטות BWV 150 ו-131 · <b>הנדל</b> / קונצ׳רטו גרוסו · <b>קמינסקי</b> / מוטט · <b>צבי אבני</b> / ממעמקים · <b>אודי פרלמן</b> / פרק תהילים פ״ו.</p>
             <div class="crew"><b>בהשתתפות:</b> אנסמבל ססיליה <span class="note">· מנצח יפורסם</span></div>
-            <div class="dates"><span class="chip"><b>ת״א</b>6.3</span><span class="chip"><b>רחובות</b>7.3</span><span class="chip"><b>י-ם</b>8.3</span><span class="chip"><b>זכרון</b>9.3</span></div>
+            <div class="dates"><span class="chip"><b>תל אביב</b>6.3</span><span class="chip"><b>רחובות</b>7.3</span><span class="chip"><b>ירושלים</b>8.3</span><span class="chip"><b>זכרון יעקב</b>9.3</span></div>
           </div>
         </div>
       </div>

@@ -1,9 +1,12 @@
 const GOOGLE_SHEETS_ENDPOINT = "https://script.google.com/macros/s/AKfycbzLe5jrCo-n3MBunAYV_MbXfR10A3erUzFqjo7EEPdRBzPno-tRdtt2HH3XwrIjeXQ/exec";
-const MAX_CONCERT_SELECTIONS = 6;
+// Two subscription tracks: 6 of 8 (standard) or 8 of 8 (full). A valid
+// registration selects exactly one of these counts.
+const ALLOWED_SELECTIONS = [6, 8];
+const MIN_SELECTION = Math.min(...ALLOWED_SELECTIONS);
+const MAX_SELECTION = Math.max(...ALLOWED_SELECTIONS);
 const form = document.getElementById("registration-form");
-// All 9 concerts are selectable and count toward the "choose 6" rule.
-// (data-optional is supported but currently unused — kept so a concert can be
-// excluded from the count in the future without touching this logic.)
+// The 8 selectable concerts. The bonus concert ("ממעמקים") has no checkbox,
+// so it is naturally excluded. data-optional is still honoured if ever used.
 const concertCheckboxes = Array.from(document.querySelectorAll(".concert-checkbox:not([data-optional])"));
 const allConcertCheckboxes = Array.from(document.querySelectorAll(".concert-checkbox"));
 const concertCountEl = document.getElementById("concert-selection-count");
@@ -12,15 +15,12 @@ const messageBox = document.getElementById("form-message");
 function updateConcertCount() {
   const selected = concertCheckboxes.filter((cb) => cb.checked).length;
   concertCountEl.textContent = selected;
+  // Allow up to the largest track (8); lock the rest only once that cap is hit.
   concertCheckboxes.forEach((cb) => {
     const card = cb.closest(".ccard");
-    if (!cb.checked && selected >= MAX_CONCERT_SELECTIONS) {
-      cb.disabled = true;
-      card?.classList.add("opacity-50");
-    } else {
-      cb.disabled = false;
-      card?.classList.remove("opacity-50");
-    }
+    const lock = !cb.checked && selected >= MAX_SELECTION;
+    cb.disabled = lock;
+    card?.classList.toggle("opacity-50", lock);
   });
 }
 
@@ -33,14 +33,17 @@ concertCheckboxes.forEach((cb) => cb.addEventListener("change", updateConcertCou
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const requiredSelected = concertCheckboxes.filter((cb) => cb.checked).length;
+  const selectedCount = concertCheckboxes.filter((cb) => cb.checked).length;
 
-  if (requiredSelected < MAX_CONCERT_SELECTIONS) {
-    showMessage(`יש לבחור בדיוק ${MAX_CONCERT_SELECTIONS} קונצרטים כדי להמשיך. בחרת ${requiredSelected}.`, "error");
+  if (!ALLOWED_SELECTIONS.includes(selectedCount)) {
+    const msg = selectedCount < MIN_SELECTION
+      ? `יש לבחור לפחות ${MIN_SELECTION} קונצרטים כדי להמשיך. בחרת ${selectedCount}.`
+      : `ניתן לבחור ${ALLOWED_SELECTIONS.join(" או ")} קונצרטים בלבד. בחרת ${selectedCount}.`;
+    showMessage(msg, "error");
     return;
   }
 
-  // Collect every checked concert, including the optional special concert.
+  // Collect every checked concert.
   const selectedConcerts = allConcertCheckboxes
     .filter((cb) => cb.checked)
     .map((cb) => cb.value);

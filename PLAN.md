@@ -19,7 +19,7 @@ Dark, cinematic, theatrical — modelled on the orchestra's official season flye
 > quality high and the aesthetic intentional.
 
 ## Behaviour
-- **8 selectable concerts**, visitor selects **exactly 6** (rule in `script.js` → `MAX_CONCERT_SELECTIONS`; once 6 are picked the rest dim out).
+- **8 selectable concerts**, two subscription tracks: **6 of 8** (standard) or **8 of 8** (full). Rule in `script.js` → `ALLOWED_SELECTIONS = [6, 8]` (selection caps at 8; submit requires exactly 6 or 8).
 - A **9th "קונצרט בונוס מיוחד" ("ממעמקים")** is shown for information only — no checkbox, not part of the selection.
 - Required fields: full name, phone, email, subscription type (single / couple).
 - Submits to the Google Apps Script endpoint (secret-key protected, duplicate-email detection, writes a row to Google Sheets).
