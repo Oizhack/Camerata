@@ -60,21 +60,20 @@
       background:rgba(10,9,8,.72);
       backdrop-filter:blur(8px);
     }
-    .header-inner{max-width:1240px;margin:0 auto;padding:.95rem 2.5rem;display:flex;align-items:center;justify-content:center;gap:.85rem}
-    .emblem{width:34px;height:34px;flex-shrink:0}
-    .brand{text-align:center;line-height:1.15}
+    .header-inner{position:relative;max-width:1240px;margin:0 auto;padding:.95rem 2.5rem}
+    .emblem{position:absolute;right:2.5rem;top:50%;transform:translateY(-50%);width:34px;height:34px;flex-shrink:0}
+    .brand{text-align:center;line-height:1.15;margin:0 auto}
     .brand b{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:1.18rem;color:var(--cream);letter-spacing:.02em;display:block}
     .brand small{font-size:.6rem;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;display:block;margin-top:3px}
 
     /* ─── HERO ──────────────────────────────────────────── */
-    .hero{position:relative;height:clamp(520px,90vh,820px);overflow:hidden;display:flex;align-items:center}
-    .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 56%;filter:brightness(.62) saturate(1.05) contrast(1.03);transform:scale(1.5);transform-origin:50% 56%;transition:transform 9s ease}
-    .hero:hover .hero-img{transform:scale(1.56)}
-    .hero-grad{position:absolute;inset:0;background:
-      radial-gradient(130% 90% at 50% 0%, rgba(230,198,132,.14), transparent 55%),
-      linear-gradient(to left, rgba(12,11,9,.9) 0%, rgba(12,11,9,.48) 40%, rgba(12,11,9,.12) 70%, transparent 100%),
-      linear-gradient(0deg, var(--bg) 2%, rgba(12,11,9,.28) 26%, transparent 55%)}
-    .hero-in{position:relative;z-index:5;max-width:1240px;width:100%;margin:0 auto;padding:0 2.5rem;direction:rtl;text-align:right}
+    /* Separate image band on top, headline text block below it. */
+    .hero-band{position:relative;width:100%;height:clamp(300px,46vh,460px);overflow:hidden}
+    .hero-img{width:100%;height:100%;object-fit:cover;object-position:50% 56%;filter:brightness(.7) saturate(1.05) contrast(1.03)}
+    .hero-band::after{content:'';position:absolute;inset:0;pointer-events:none;background:
+      radial-gradient(130% 90% at 50% 0%, rgba(230,198,132,.12), transparent 55%),
+      linear-gradient(0deg, var(--bg) 1%, rgba(12,11,9,.25) 22%, transparent 50%)}
+    .hero-in{max-width:1240px;width:100%;margin:0 auto;padding:2.6rem 2.5rem 1rem;direction:rtl;text-align:right}
     .eyebrow{display:inline-block;font-size:.66rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);padding-bottom:.55rem;margin-bottom:1.4rem;border-bottom:1px solid var(--line-strong)}
     .hero h1{font-family:'Heebo',sans-serif;font-weight:900;font-size:clamp(2.8rem,7vw,5.4rem);line-height:1.02;color:#fff;letter-spacing:-.01em;margin-bottom:1.3rem;text-shadow:0 2px 40px rgba(0,0,0,.5)}
     .hero h1 .em{background:linear-gradient(180deg,var(--gold-pale),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -90,6 +89,8 @@
     .steps{list-style:none;counter-reset:s}
     .steps li{counter-increment:s;position:relative;padding-right:2.5rem;padding-bottom:1rem;font-size:.92rem;color:var(--muted);line-height:1.6}
     .steps li:last-child{padding-bottom:0}
+    .substep{display:block;position:relative;margin-top:.5rem;padding-right:1rem;color:var(--cream);font-size:.9rem;line-height:1.5}
+    .substep::before{content:'';position:absolute;right:0;top:.6rem;width:5px;height:5px;background:var(--gold);border-radius:50%}
     .steps li::before{content:counter(s);position:absolute;right:0;top:-.1rem;width:1.6rem;height:1.6rem;border:1px solid var(--gold);color:var(--gold);font-family:'Heebo';font-size:.72rem;font-weight:800;display:flex;align-items:center;justify-content:center;border-radius:50%}
     .venues-title{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
     .venues{list-style:none}
@@ -152,10 +153,10 @@
 
     /* ─── REGISTRATION FORM ─────────────────────────────── */
     .reg{max-width:1240px;margin:0 auto;padding:0 2.5rem 5rem}
-    .formcard{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--gold);padding:2.25rem 2.5rem;max-width:760px;margin:0 auto}
-    .formcard .fhd{font-family:'Frank Ruhl Libre',serif;font-weight:900;font-size:clamp(1.4rem,2.6vw,1.85rem);color:var(--cream);margin-bottom:.35rem}
-    .formcard .fsub{font-size:.92rem;color:var(--muted);margin-bottom:1.6rem}
-    .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:1.15rem 1.4rem;align-items:end}
+    .formcard{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--gold);padding:1.9rem 2rem;max-width:720px;margin:0 auto}
+    .formcard .fhd{font-family:'Frank Ruhl Libre',serif;font-weight:900;font-size:clamp(1.4rem,2.6vw,1.85rem);color:var(--cream);margin-bottom:.25rem}
+    .formcard .fsub{font-size:.92rem;color:var(--muted);margin-bottom:1.2rem}
+    .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:.95rem 1.3rem;align-items:end}
     .fgrid .full{grid-column:1/-1}
     .fl{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.4rem}
     .fi,.fselect{width:100%;background:transparent;border:none;border-bottom:1.5px solid var(--line);padding:.5rem 0;color:var(--cream);font-size:1rem;outline:none;transition:border-color .25s}
@@ -180,7 +181,7 @@
     #form-message.error{border-color:var(--err);background:rgba(217,138,138,.08);color:var(--err)}
     #form-message.info{border-color:var(--gold);background:rgba(201,163,92,.08);color:var(--gold-pale)}
 
-    .submit-btn{grid-column:1/-1;justify-self:start;min-width:240px;background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold));background-size:200% 100%;color:#1a1206;border:none;padding:.9rem 2.2rem;margin-top:.4rem;font-family:'Frank Ruhl Libre',serif;font-weight:900;font-size:1.1rem;letter-spacing:.04em;cursor:pointer;transition:filter .25s}
+    .submit-btn{grid-column:1/-1;justify-self:center;min-width:240px;background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold));background-size:200% 100%;color:#1a1206;border:none;padding:.9rem 2.2rem;margin-top:.4rem;font-family:'Frank Ruhl Libre',serif;font-weight:900;font-size:1.1rem;letter-spacing:.04em;cursor:pointer;transition:filter .25s}
     .submit-btn:hover{filter:brightness(1.06);animation:shimmer 2s linear infinite}
 
     /* ── STICKY SELECTION COUNTER ── */
@@ -194,6 +195,8 @@
     /* ── FOOTER extra lines ── */
     .footer-tagline{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:1.3rem}
     .footer-phone{font-size:1.02rem;color:var(--cream);letter-spacing:.04em;margin-bottom:1.4rem}
+    .footer-phone a{color:var(--gold);text-decoration:none}
+    .footer-phone a:hover{text-decoration:underline}
 
     /* ─── FOOTER ────────────────────────────────────────── */
     .site-footer{border-top:1px solid var(--line);background:#080706;text-align:center;padding:2.8rem 2rem}
@@ -216,6 +219,7 @@
     }
     @media (max-width:600px){
       .header-inner{padding:.85rem 1.25rem}
+      .emblem{right:1.25rem}
       .brand b{font-size:1.02rem}
       .hero-in,.intro,.wrap,.reg{padding-left:1.25rem;padding-right:1.25rem}
       .intro{padding-top:3rem}
@@ -269,11 +273,12 @@
 
   <!-- ── HERO ── -->
   <section class="hero">
-    <img class="hero-img" src="assets/camerata/camerata-wiki.jpg" alt="תזמורת הקאמרטה הישראלית ירושלים על הבמה" />
-    <div class="hero-grad"></div>
+    <div class="hero-band">
+      <img class="hero-img" src="assets/camerata/camerata-wiki.jpg" alt="תזמורת הקאמרטה הישראלית ירושלים על הבמה" />
+    </div>
     <div class="hero-in">
       <span class="eyebrow au d1">עונת 2026–2027 · כלים וקולות · העונה ה-43</span>
-      <h1 class="au d2">עונה חדשה<br/><span class="em">מחכה לכם</span></h1>
+      <h1 class="au d2">עונה חדשה <span class="em">מחכה לכם</span></h1>
       <p class="au d3">שריינו את המקום שלכם — ההרשמה למנויי העונה בעיצומה.</p>
       <div class="hero-rule au d4"></div>
     </div>
@@ -286,12 +291,15 @@
     <p>הצטרפו לקהילת המנויים של הקאמרטה הישראלית ירושלים לעונת 2026–2027, העונה ה-43 בניצוחו של אבנר בירון, המנהל המוזיקלי. שמונה קונצרטים בארבע ערים, לצד קונצרט מיוחד נוסף.</p>
     <div class="intro-cols">
       <div>
-        <p class="venues-title">כיצד ההרשמה פועלת</p>
+        <p class="venues-title">כיצד נרשמים?</p>
         <ol class="steps">
           <li>מלאו את פרטיכם האישיים</li>
           <li>בחרו סוג מנוי — יחיד או זוגי</li>
-          <li>שני מסלולי מנוי לבחירתכם: בחירת 6 קונצרטים מתוך 8 | בחירת 8 קונצרטים מתוך 8 — במידה ואין ברשותכם יתרות.</li>
-          <li>להמשך טיפול והשלמת התשלום.</li>
+          <li>שני מסלולי מנוי לבחירתכם:
+            <span class="substep">מנוי לשישה קונצרטים (יש לבחור שישה קונצרטים מתוך שמונה)</span>
+            <span class="substep">מנוי לשמונה קונצרטים (במידה ואין ברשותכם יתרות מעונה קודמת)</span>
+          </li>
+          <li>הנתונים נשמרים ועוברים למחלקת מכירות להמשך טיפול והשלמת תהליך התשלום.</li>
         </ol>
       </div>
       <div>
@@ -469,9 +477,9 @@
             <input class="fi" id="email" name="email" type="email" autocomplete="email" required />
           </div>
           <div>
-            <label class="fl" for="city">עיר מועדפת · לא חובה</label>
-            <select class="fselect" id="city" name="city">
-              <option value="">אין העדפה</option>
+            <label class="fl" for="city">עיר מועדפת</label>
+            <select class="fselect" id="city" name="city" required>
+              <option value="" disabled selected>בחרו עיר</option>
               <option value="תל אביב">תל אביב — מוזיאון ת״א</option>
               <option value="רחובות">רחובות — מכון ויצמן</option>
               <option value="ירושלים">ירושלים — ימק״א</option>
@@ -504,13 +512,7 @@
     <p class="footer-logo">הקאמרטה הישראלית ירושלים</p>
     <p class="footer-tagline">סדרת כלים וקולות · העונה ה-43</p>
     <p class="footer-cta">להזמנת מנויים וכרטיסים: <a href="https://jcamerata.smarticket.co.il" target="_blank" rel="noopener">jcamerata.smarticket.co.il</a></p>
-    <p class="footer-phone">טל׳ 02-5020503</p>
-    <div class="footer-links">
-      <a href="#">מדיניות פרטיות</a>
-      <a href="#">תנאי שימוש</a>
-      <a href="#">צור קשר</a>
-      <a href="#">ארכיון קונצרטים</a>
-    </div>
+    <p class="footer-phone">טל׳ <a href="tel:+97225020503">02-5020503</a></p>
     <p class="footer-copy">© 2026 הקאמרטה הישראלית ירושלים · העונה ה-43. כל הזכויות שמורות.</p>
   </footer>
 

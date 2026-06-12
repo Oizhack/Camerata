@@ -47,6 +47,12 @@ form.addEventListener("submit", async (event) => {
     return;
   }
 
+  // City is required.
+  if (form.city && !form.city.value) {
+    showMessage("יש לבחור עיר מועדפת.", "error");
+    return;
+  }
+
   // Collect every checked concert.
   const selectedConcerts = allConcertCheckboxes
     .filter((cb) => cb.checked)
