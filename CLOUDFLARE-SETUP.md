@@ -24,6 +24,12 @@ this is done with a small Cloudflare Worker that reverse-proxies only the
 - It already works under `/landing`:
   https://boisterous-pasca-94fd3c.netlify.app/landing
 
+**Pre-check (do this first):** open
+https://boisterous-pasca-94fd3c.netlify.app/landing in a browser. The
+registration page should load fully — images, fonts, and a working concert
+counter. This confirms the proxy target (the "origin") is healthy, so the only
+thing left to set up is the `/landing` route below.
+
 ## Steps (Cloudflare dashboard)
 
 1. Open the Cloudflare account that manages `smarticket.co.il` → select that zone.
