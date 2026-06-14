@@ -38,3 +38,34 @@ updated.
 > (thumbnails under 200 KB, banner under 500 KB). Keep the main subject
 > centered — images are auto-cropped and darkened, and the bottom third is
 > covered by an overlay.
+
+---
+
+# Simple summary for the graphic artist
+
+**Overall look:** dark, cinematic, elegant — warm gold/red theme. Photos are
+shown dimmed and slightly desaturated over a black page, so use **dramatic,
+stage-lit, warm-toned images** with the **main subject centered**. Concert halls,
+musicians, and instruments in performance lighting work best.
+
+**What to deliver:** 10 photos total — see the size table above
+(8 concert thumbnails 1200×400, 1 bonus 800×800, 1 top banner 2400×1000).
+
+**What each picture should show:**
+
+| # | File | Concert | Suggested subject |
+|---|---|---|---|
+| — | `camerata-wiki.jpg` (banner) | Top of page | The full Camerata orchestra performing on stage — wide, dramatic, stage lighting. The signature image. |
+| 1 | `orchestra.jpg` | בטהובן ובני דורו | A classical orchestra / conductor leading the ensemble — grand, symphonic feel. |
+| 2 | `cello.jpg` | ערב צ׳לו | A cellist playing, or a striking close-up of a cello. |
+| 3 | `soprano.jpg` | מעיין ליכט, סופרן | A female opera singer (soprano) performing — ideally a portrait of the soloist. |
+| 4 | `choir.jpg` | האנסמבל הקולי הישראלי | A choir / vocal ensemble singing together. |
+| 5 | `camerata-recanati-2021.jpg` | אוצרות איטלקיים חבויים | A small string ensemble / soloists playing (no conductor) — intimate, baroque feel. |
+| 6 | `seats-red.jpg` | קולות לילה | Night / evening mood — a dim, atmospheric concert hall, warm or red lighting. |
+| 7 | `violin.jpg` | נטשה שר, כינור | A violinist playing, or a close-up of a violin. |
+| 8 | `guitar.jpg` | ערב גיטרה | A classical (Spanish) guitar / guitarist — warm, intimate. |
+| ★ | `sacred.jpg` (bonus) | ממעמקים | Sacred / spiritual mood — cathedral, candlelight, or a choir in a sacred space. Square-ish crop. |
+
+**Reminders:** keep the subject centered (edges get cropped), avoid putting faces
+or text in the bottom third (covered by an overlay), and prefer bright,
+high-contrast shots — already-dark photos turn to mud once dimmed.
