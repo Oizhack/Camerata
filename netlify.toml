@@ -1,0 +1,12 @@
+# Serve the app under /landing. Asset/script requests come in as
+# /landing/assets/... and /landing/script.js and are rewritten back to the
+# real files at the site root. status = 200 = internal rewrite (no redirect).
+[[redirects]]
+  from = "/landing/*"
+  to = "/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/landing"
+  to = "/index.html"
+  status = 200
