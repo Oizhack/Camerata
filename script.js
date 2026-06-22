@@ -26,11 +26,18 @@ function updateConcertCount() {
     cb.disabled = lock;
     card?.classList.toggle("opacity-50", lock);
   });
+  // The selection changed, so any previous validation error is now stale — clear it.
+  if (messageBox && messageBox.classList.contains("error")) hideMessage();
 }
 
 function showMessage(text, type = "info") {
   messageBox.className = "visible " + type;
   messageBox.textContent = text;
+}
+
+function hideMessage() {
+  messageBox.className = "";
+  messageBox.textContent = "";
 }
 
 concertCheckboxes.forEach((cb) => cb.addEventListener("change", updateConcertCount));
