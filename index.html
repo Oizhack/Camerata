@@ -6,6 +6,10 @@
   <title>הקאמרטה הישראלית ירושלים — הרשמה לעונה 2026–2027 · כלים וקולות</title>
   <meta name="description" content="עונה חדשה מחכה לכם — הרשמה לסדרת המנויים 'כלים וקולות' של הקאמרטה הישראלית ירושלים, העונה ה-43. 8 קונצרטים וקונצרט מיוחד." />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" />
+
   <style>
     /* ─── RESET ─────────────────────────────────────────── */
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -22,6 +26,8 @@
       --gold-pale:#f1ddae;
       --red:#8d1f1f;
       --red-light:#b23030;
+      --amber:#e69e21;
+      --amber-dark:#cf8a14;
       --cream:#f4ede0;
       --muted:#9a9085;
       --line:rgba(201,163,92,.22);
@@ -60,24 +66,24 @@
       background:rgba(10,9,8,.72);
       backdrop-filter:blur(8px);
     }
-    .header-inner{position:relative;max-width:1240px;margin:0 auto;padding:.95rem 2.5rem}
-    .emblem{position:absolute;right:2.5rem;top:50%;transform:translateY(-50%);width:34px;height:34px;flex-shrink:0}
-    .brand{text-align:center;line-height:1.15;margin:0 auto}
-    .brand b{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:1.18rem;color:var(--cream);letter-spacing:.02em;display:block}
-    .brand small{font-size:.6rem;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;display:block;margin-top:3px}
+    .header-inner{position:relative;max-width:1240px;margin:0 auto;padding:.7rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .brand-logo{height:46px;width:auto;filter:invert(1) brightness(1.08);flex-shrink:0}
+    .brand-tickets{font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid var(--line-strong);border-radius:6px;padding:.5rem .9rem;transition:background .25s,color .25s,border-color .25s;white-space:nowrap}
+    .brand-tickets:hover{background:var(--gold);color:#1a1206;border-color:var(--gold)}
 
     /* ─── HERO ──────────────────────────────────────────── */
-    /* Separate image band on top, headline text block below it. */
-    .hero-band{position:relative;width:100%;height:clamp(300px,46vh,460px);overflow:hidden}
-    .hero-img{width:100%;height:100%;object-fit:cover;object-position:50% 56%;filter:brightness(.7) saturate(1.05) contrast(1.03)}
+    /* Full-bleed photo with the headline overlaid on its lower third, lifted by a scrim. */
+    .hero{position:relative;display:flex;align-items:flex-end;min-height:clamp(440px,66vh,640px);overflow:hidden}
+    .hero-band{position:absolute;inset:0;z-index:0}
+    .hero-img{width:100%;height:100%;object-fit:cover;object-position:50% 48%;filter:brightness(.62) saturate(1.05) contrast(1.03)}
     .hero-band::after{content:'';position:absolute;inset:0;pointer-events:none;background:
-      radial-gradient(130% 90% at 50% 0%, rgba(230,198,132,.12), transparent 55%),
-      linear-gradient(0deg, var(--bg) 1%, rgba(12,11,9,.25) 22%, transparent 50%)}
-    .hero-in{max-width:1240px;width:100%;margin:0 auto;padding:2.6rem 2.5rem 1rem;direction:rtl;text-align:right}
+      radial-gradient(120% 80% at 50% 0%, rgba(230,198,132,.10), transparent 55%),
+      linear-gradient(0deg, var(--bg) 2%, rgba(12,11,9,.86) 24%, rgba(12,11,9,.42) 52%, transparent 78%)}
+    .hero-in{position:relative;z-index:1;max-width:1240px;width:100%;margin:0 auto;padding:2.6rem 2.5rem 2.6rem;direction:rtl;text-align:right}
     .eyebrow{display:inline-block;font-size:.66rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);padding-bottom:.55rem;margin-bottom:1.4rem;border-bottom:1px solid var(--line-strong)}
-    .hero h1{font-family:'Heebo',sans-serif;font-weight:900;font-size:clamp(2.8rem,7vw,5.4rem);line-height:1.02;color:#fff;letter-spacing:-.01em;margin-bottom:1.3rem;text-shadow:0 2px 40px rgba(0,0,0,.5)}
+    .hero h1{font-family:'Heebo',sans-serif;font-weight:900;font-size:clamp(2.8rem,7vw,5.4rem);line-height:1.02;color:#fff;letter-spacing:-.01em;margin-bottom:1.3rem;text-shadow:0 1px 2px rgba(0,0,0,.55),0 2px 40px rgba(0,0,0,.5)}
     .hero h1 .em{background:linear-gradient(180deg,var(--gold-pale),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
-    .hero p{font-family:'Frank Ruhl Libre',serif;font-size:clamp(1.05rem,2.2vw,1.55rem);font-weight:500;color:var(--gold-pale);max-width:540px;line-height:1.5}
+    .hero p{font-family:'Frank Ruhl Libre',serif;font-size:clamp(1.05rem,2.2vw,1.55rem);font-weight:500;color:var(--gold-pale);max-width:540px;line-height:1.5;text-shadow:0 1px 8px rgba(0,0,0,.6)}
     .hero-rule{width:60px;height:2px;background:var(--gold);margin-top:1.7rem}
 
     /* ─── INTRO ─────────────────────────────────────────── */
@@ -181,15 +187,16 @@
     #form-message.error{border-color:var(--err);background:rgba(217,138,138,.08);color:var(--err)}
     #form-message.info{border-color:var(--gold);background:rgba(201,163,92,.08);color:var(--gold-pale)}
 
-    .submit-btn{grid-column:1/-1;justify-self:center;min-width:240px;background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold));background-size:200% 100%;color:#1a1206;border:none;padding:.9rem 2.2rem;margin-top:.4rem;font-family:'Frank Ruhl Libre',serif;font-weight:900;font-size:1.1rem;letter-spacing:.04em;cursor:pointer;transition:filter .25s}
-    .submit-btn:hover{filter:brightness(1.06);animation:shimmer 2s linear infinite}
+    .submit-btn{grid-column:1/-1;justify-self:center;min-width:260px;background:transparent;color:var(--amber);border:1.5px solid var(--amber);border-radius:6px;padding:1rem 2.8rem;margin-top:.6rem;font-weight:700;font-size:1.1rem;letter-spacing:.04em;cursor:pointer;transition:background .4s ease,color .4s ease,border-color .4s ease,letter-spacing .4s ease,box-shadow .4s ease}
+    .submit-btn:hover{background:var(--amber);color:#1a1206;border-color:var(--amber);letter-spacing:.14em;box-shadow:0 8px 26px rgba(230,158,33,.32)}
+    .submit-btn:active{transform:translateY(1px)}
 
     /* ── STICKY SELECTION COUNTER ── */
     .sticky-counter{position:fixed;z-index:200;bottom:1.1rem;left:1.1rem;display:flex;align-items:center;gap:.55rem;background:rgba(20,18,16,.92);border:1px solid var(--line-strong);backdrop-filter:blur(8px);padding:.55rem .95rem;border-radius:999px;color:var(--cream);text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.45);transition:border-color .25s,background .25s}
     .sticky-counter:hover{border-color:var(--gold)}
     .sticky-counter .sc-num{font-weight:800;color:var(--gold);font-size:1.15rem;min-width:1.1em;text-align:center}
     .sticky-counter .sc-label{font-size:.85rem;color:var(--muted);letter-spacing:.02em}
-    .sticky-counter.valid{background:linear-gradient(90deg,var(--gold),var(--gold-light));border-color:var(--gold)}
+    .sticky-counter.valid{background:linear-gradient(90deg,var(--amber-dark),var(--amber));border-color:var(--amber)}
     .sticky-counter.valid .sc-num,.sticky-counter.valid .sc-label{color:#1a1206}
 
     /* ── FOOTER extra lines ── */
@@ -218,9 +225,9 @@
       .fgrid{grid-template-columns:1fr}
     }
     @media (max-width:600px){
-      .header-inner{padding:.85rem 1.25rem}
-      .emblem{right:1.25rem}
-      .brand b{font-size:1.02rem}
+      .header-inner{padding:.6rem 1.25rem}
+      .brand-logo{height:38px}
+      .brand-tickets{font-size:.66rem;padding:.42rem .7rem;letter-spacing:.08em}
       .hero-in,.intro,.wrap,.reg{padding-left:1.25rem;padding-right:1.25rem}
       .intro{padding-top:3rem}
       .formcard{padding:1.75rem 1.25rem}
@@ -228,8 +235,8 @@
       .pills{flex-direction:column}
     }
 
-    /* ── USER OVERRIDES: Arial everywhere + readable minimum sizes ── */
-    *{font-family:Arial,"Arial Hebrew","Helvetica Neue",Helvetica,sans-serif !important}
+    /* ── USER OVERRIDES: Open Sans Hebrew (Camerata brand font) + readable minimum sizes ── */
+    *{font-family:'Open Sans Hebrew','Open Sans',Arial,"Arial Hebrew","Helvetica Neue",Helvetica,sans-serif !important}
     body{font-size:16px}
     .eyebrow,.intro-kick,.sec-hd .kick{font-size:.82rem;letter-spacing:.16em}
     .ctag{font-size:.8rem;letter-spacing:.1em}
@@ -244,7 +251,6 @@
     .venues li span{font-size:.95rem}
     .special-badge{font-size:.8rem}
     .special-hd{font-size:.92rem;letter-spacing:.08em}
-    .brand small{font-size:.78rem;letter-spacing:.14em}
     .footer-links a{font-size:.82rem}
     .footer-copy{font-size:.78rem}
     .fsub{font-size:1rem}
@@ -259,15 +265,8 @@
   <!-- ── HEADER ── -->
   <header class="site-header">
     <div class="header-inner">
-      <svg class="emblem" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-        <circle cx="20" cy="20" r="18" stroke="#c9a35c" stroke-width="1.2"/>
-        <path d="M14 27c0-6 3-9 3-14 0-2 1.5-3 3-3M17 13c4 0 6 2 6 6 0 5-4 6-4 10" stroke="#c9a35c" stroke-width="1.4" stroke-linecap="round"/>
-        <circle cx="14" cy="27" r="2.4" fill="#c9a35c"/>
-      </svg>
-      <div class="brand">
-        <b>הקאמרטה הישראלית ירושלים</b>
-        <small>מנהל מוזיקלי · אבנר בירון</small>
-      </div>
+      <img class="brand-logo" src="/landing/assets/camerata/logo.png" alt="הקאמרטה הישראלית ירושלים — מנהל מוזיקלי אבנר בירון" />
+      <a class="brand-tickets" href="https://jcamerata.smarticket.co.il" target="_blank" rel="noopener">הזמנת כרטיסים</a>
     </div>
   </header>
 
@@ -494,7 +493,7 @@
             </div>
           </div>
           <div id="form-message"></div>
-          <button type="submit" class="submit-btn">שריינו את המקום שלכם</button>
+          <button type="submit" class="submit-btn">שלחו ונחזור אליכם</button>
         </div>
       </div>
     </div>
@@ -513,6 +512,7 @@
     <p class="footer-tagline">סדרת כלים וקולות · העונה ה-43</p>
     <p class="footer-cta">להזמנת מנויים וכרטיסים: <a href="https://jcamerata.smarticket.co.il" target="_blank" rel="noopener">jcamerata.smarticket.co.il</a></p>
     <p class="footer-phone">טל׳ <a href="tel:+97225020503">02-5020503</a></p>
+    <p class="footer-cta"><a href="https://jcamerata.smarticket.co.il/%D7%AA%D7%A7%D7%A0%D7%95%D7%9F_%D7%95%D7%9E%D7%97%D7%99%D7%A8%D7%99%D7%9D" target="_blank" rel="noopener">תקנון ומחירים</a></p>
     <p class="footer-copy">© 2026 הקאמרטה הישראלית ירושלים · העונה ה-43. כל הזכויות שמורות.</p>
   </footer>
 
