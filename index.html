@@ -85,7 +85,7 @@
     .hero-rule{width:60px;height:2px;background:var(--gold);margin-top:1.7rem}
 
     /* ─── INTRO ─────────────────────────────────────────── */
-    .intro{max-width:1240px;margin:0 auto;padding:4.5rem 2.5rem 1rem}
+    .intro{max-width:1240px;margin:0 auto;padding:2.4rem 2.5rem 1rem}
     .intro-kick{font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.9rem}
     .intro h2{font-family:'Frank Ruhl Libre',serif;font-weight:900;font-size:clamp(1.8rem,3.6vw,2.7rem);color:var(--cream);line-height:1.2;margin-bottom:1.1rem;max-width:780px}
     .intro p{font-size:1.02rem;color:var(--muted);line-height:1.85;max-width:680px;margin-bottom:2.5rem}
@@ -225,12 +225,18 @@
     @media (max-width:600px){
       .header-inner{padding:.6rem 1.25rem}
       .brand-logo{height:38px}
-      .brand-tickets{font-size:.66rem;padding:.42rem .7rem;letter-spacing:.08em}
       .hero-in,.intro,.wrap,.reg{padding-left:1.25rem;padding-right:1.25rem}
-      .intro{padding-top:3rem}
+      .intro{padding-top:1.8rem}
       .formcard{padding:1.75rem 1.25rem}
       .sec-hd{flex-direction:column;gap:.6rem}
       .pills{flex-direction:column}
+      /* Stacked hero on phones: photo band on top (conductor fully visible), text below */
+      .hero{display:block;min-height:0}
+      .hero-band{position:relative;inset:auto;height:clamp(230px,40vh,330px)}
+      .hero-img{object-position:50% 42%}
+      .hero-band::after{background:linear-gradient(0deg,var(--bg) 1%,transparent 38%)}
+      .hero-in{padding-top:1.5rem;padding-bottom:.4rem}
+      .hero-rule{margin-top:1.1rem}
     }
 
     /* ── USER OVERRIDES: Open Sans Hebrew (Camerata brand font) + readable minimum sizes ── */
@@ -282,7 +288,6 @@
 
   <!-- ── INTRO ── -->
   <section class="intro au d1">
-    <span class="intro-kick">הצטרפו אלינו</span>
     <h2>סדרת "כלים וקולות" — עונה שלמה של מוזיקה</h2>
     <p>הצטרפו לקהילת המנויים של הקאמרטה הישראלית ירושלים לעונת 2026–2027, העונה ה-43 בניצוחו של אבנר בירון, המנהל המוזיקלי. שמונה קונצרטים בארבע ערים, לצד קונצרט מיוחד נוסף.</p>
     <div class="intro-cols">
