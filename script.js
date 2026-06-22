@@ -16,7 +16,7 @@ const messageBox = document.getElementById("form-message");
 
 function updateConcertCount() {
   const selected = concertCheckboxes.filter((cb) => cb.checked).length;
-  concertCountEl.textContent = selected;
+  if (concertCountEl) concertCountEl.textContent = selected;
   if (stickyCountEl) stickyCountEl.textContent = selected;
   if (stickyCounter) stickyCounter.classList.toggle("valid", ALLOWED_SELECTIONS.includes(selected));
   // Allow up to the largest track (8); lock the rest only once that cap is hit.
