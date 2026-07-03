@@ -1,3 +1,18 @@
+/**
+ * Camerata season-2026 registration backend (Google Apps Script web app).
+ *
+ * IMPORTANT: the live endpoint runs whatever is DEPLOYED in the Apps Script
+ * editor — not this repo file. After editing here you must:
+ *   1. Paste this code into the script bound to the sheet.
+ *   2. Deploy → Manage deployments → edit the active deployment → redeploy
+ *      (keeps the same /exec URL used in script.js).
+ *   3. Add a header for column H (e.g. "מסלול") in the sheet.
+ *
+ * Sheet columns written per submission (row order):
+ *   A date/time | B full name | C phone (text) | D email | E type (יחיד/זוגי)
+ *   F concerts ("1, 2, 3…", bonus = "בונוס") | G city | H track (5/6/8)
+ * Duplicate registrations are blocked by email (column D).
+ */
 const SECRET_KEY = 'CaMeRaTa@JeRuSaLeM#2026';
 
 function doPost(e) {
@@ -22,10 +37,13 @@ function doPost(e) {
     const subscriptionMap = { single: 'יחיד', couple: 'זוגי' };
     const subscriptionLabel = subscriptionMap[payload.subscriptionType] || payload.subscriptionType;
 
-    // Extract only concert numbers: "1, 2, 3"
+    // Extract concert numbers: "1, 2, 3"; the bonus concert records as "בונוס"
     const concertList = Array.isArray(payload.selectedConcerts) ? payload.selectedConcerts : [];
     const concerts = concertList
-      .map(c => { const m = c.match(/\d+/); return m ? m[0] : c; })
+      .map(c => {
+        if (c.indexOf('בונוס') !== -1) return 'בונוס';
+        const m = c.match(/\d+/); return m ? m[0] : c;
+      })
       .join(', ');
 
     // Check if email already submitted — read column D directly
