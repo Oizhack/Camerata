@@ -88,8 +88,15 @@
     .intro{max-width:1240px;margin:0 auto;padding:2.4rem 2.5rem 1rem}
     .intro-kick{font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.9rem}
     .intro h2{font-family:'Frank Ruhl Libre',serif;font-weight:900;font-size:clamp(1.8rem,3.6vw,2.7rem);color:var(--cream);line-height:1.2;margin-bottom:1.1rem;max-width:780px}
-    .intro p{font-size:1.02rem;color:var(--muted);line-height:1.85;max-width:680px;margin-bottom:2.5rem}
-    .intro-cols{display:grid;grid-template-columns:1.1fr 1fr;gap:2.5rem}
+    .intro p{font-size:1.02rem;color:var(--muted);line-height:1.85;max-width:680px;margin-bottom:1.15rem}
+    .intro-cta{color:var(--gold-light);font-weight:700}
+    .intro-cols{display:grid;grid-template-columns:1.1fr 1fr;gap:2.5rem;margin-top:2.4rem}
+    .tracks{list-style:none}
+    .tracks li{position:relative;padding-right:1.2rem;padding-bottom:1rem;font-size:.95rem;color:var(--muted);line-height:1.65}
+    .tracks li:last-child{padding-bottom:0}
+    .tracks li::before{content:'';position:absolute;right:0;top:.62rem;width:6px;height:6px;background:var(--gold);border-radius:50%}
+    .tracks b{color:var(--gold-light);font-weight:700}
+    .tracks a{color:var(--gold);text-decoration:underline;white-space:nowrap}
     .steps{list-style:none;counter-reset:s}
     .steps li{counter-increment:s;position:relative;padding-right:2.5rem;padding-bottom:1rem;font-size:.92rem;color:var(--muted);line-height:1.6}
     .steps li:last-child{padding-bottom:0}
@@ -262,6 +269,16 @@
     .footer-cta{font-size:1.02rem}
     .ctitle{font-size:1.55rem}
     .intro p{font-size:1.08rem}
+
+    /* ─── SEQUENTIAL STEP FLOW ─────────────────────────── */
+    .reg-step{max-width:1240px;margin:2.8rem auto 1.1rem;padding:0 2.5rem;display:flex;align-items:center;flex-wrap:wrap;gap:.7rem .9rem}
+    .reg-step-n{flex-shrink:0;width:2.1rem;height:2.1rem;border:1.5px solid var(--gold);color:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem}
+    .reg-step h2{font-weight:900;font-size:clamp(1.3rem,3vw,1.95rem);color:var(--cream);line-height:1.2}
+    .reg-step .rs-link{font-size:.85rem;color:var(--gold);text-decoration:underline;white-space:nowrap}
+    .step-submit{display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.1rem}
+    .step-submit .submit-btn{margin-top:0}
+    .step-submit #form-message{width:100%;max-width:560px}
+    .wrap-concerts{padding-top:.4rem}
   </style>
 </head>
 
@@ -281,8 +298,8 @@
     </div>
     <div class="hero-in">
       <span class="eyebrow au d1">עונת 2026–2027 · כלים וקולות · העונה ה-43</span>
-      <h1 class="au d2">עונה חדשה <span class="em">מחכה לכם</span></h1>
-      <p class="au d3">שריינו את המקום שלכם — ההרשמה למנויי העונה בעיצומה.</p>
+      <h1 class="au d2">מוזיקה נפלאה, <span class="em">חופש בחירה מלא</span></h1>
+      <p class="au d3">העונה ה-43 של הקאמרטה — כבר כאן!</p>
       <div class="hero-rule au d4"></div>
     </div>
   </section>
@@ -290,19 +307,17 @@
   <!-- ── INTRO ── -->
   <section class="intro au d1">
     <h2>סדרת "כלים וקולות" — עונה שלמה של מוזיקה</h2>
-    <p>הצטרפו לקהילת המנויים של הקאמרטה הישראלית ירושלים לעונת 2026–2027, העונה ה-43 בניצוחו של אבנר בירון, המנהל המוזיקלי. שמונה קונצרטים בארבע ערים, לצד קונצרט מיוחד נוסף.</p>
+    <p>תחת שרביטו של המאסטרו אבנר בירון, אנחנו מזמינים אתכם לעונה של יצירות מופת ולצידן יצירות ששווה להכיר, סולנים מן השורה הראשונה ואווירה בלתי נשכחת.</p>
+    <p>השנה, הכללים משתנים: עם מסלולי המינוי החדשים והגמישים שלנו, אתם מחליטים איך ליהנות מהמוזיקה. התאמנו את העונה ללו"ז שלכם, כדי שתוכלו ליהנות בלי פשרות.</p>
+    <p class="intro-cta">אל תחכו – שריינו לעצמכם מקום בעונה המרהיבה שלנו!</p>
     <div class="intro-cols">
       <div>
-        <p class="venues-title">כיצד נרשמים?</p>
-        <ol class="steps">
-          <li>מלאו את פרטיכם האישיים</li>
-          <li>בחרו סוג מנוי — יחיד או זוגי</li>
-          <li>שני מסלולי מנוי לבחירתכם:
-            <span class="substep">מנוי לשישה קונצרטים (יש לבחור שישה קונצרטים מתוך שמונה)</span>
-            <span class="substep">מנוי לשמונה קונצרטים (במידה ואין ברשותכם יתרות מעונה קודמת)</span>
-          </li>
-          <li>הנתונים נשמרים ועוברים למחלקת מכירות להמשך טיפול והשלמת תהליך התשלום.</li>
-        </ol>
+        <p class="venues-title">מסלולי מנוי</p>
+        <ul class="tracks">
+          <li><b>מנוי 5 כרטיסים</b> — בתל אביב בלבד <a href="https://jcamerata.smarticket.co.il/%D7%AA%D7%A7%D7%A0%D7%95%D7%9F_%D7%95%D7%9E%D7%97%D7%99%D7%A8%D7%99%D7%9D" target="_blank" rel="noopener">לפרטים</a></li>
+          <li><b>מנוי 6 כרטיסים</b> — בוחרים 6 קונצרטים מתוך 8 בסדרת "כלים וקולות" (מתאים במיוחד למי שיש יתרות מהעונה הקודמת).</li>
+          <li><b>מנוי 8 כרטיסים</b> — נהנים מהסדרה המלאה של "כלים וקולות" – בלי לפספס אף צליל!</li>
+        </ul>
       </div>
       <div>
         <p class="venues-title">אולמות הקונצרטים</p>
@@ -318,14 +333,65 @@
 
   <form id="registration-form" novalidate>
 
-    <!-- ── CONCERTS ── -->
-    <div class="wrap">
-      <div class="sec-hd">
-        <div>
-          <span class="kick">רפרטואר העונה · 8 קונצרטים לבחירה + קונצרט בונוס</span>
-          <h2>בחרו את הקונצרטים שלכם</h2>
+    <!-- ── STEP 1 · personal details ── -->
+    <div class="reg-step"><span class="reg-step-n">1</span><h2>מלאו את פרטיכם האישיים</h2></div>
+    <div class="reg">
+      <div class="formcard">
+        <div class="fgrid">
+          <div>
+            <label class="fl" for="full-name">שם מלא</label>
+            <input class="fi" id="full-name" name="fullName" type="text" autocomplete="name" required />
+          </div>
+          <div>
+            <label class="fl" for="phone">טלפון</label>
+            <input class="fi" id="phone" name="phone" type="tel" autocomplete="tel" required />
+          </div>
+          <div>
+            <label class="fl" for="email">אימייל</label>
+            <input class="fi" id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+          <div>
+            <label class="fl" for="city">עיר מועדפת</label>
+            <select class="fselect" id="city" name="city" required>
+              <option value="" disabled selected>בחרו עיר</option>
+              <option value="תל אביב">תל אביב — מוזיאון ת״א</option>
+              <option value="רחובות">רחובות — מכון ויצמן</option>
+              <option value="ירושלים">ירושלים — ימק״א</option>
+              <option value="זכרון יעקב">זכרון יעקב — אלמא</option>
+            </select>
+          </div>
         </div>
       </div>
+    </div>
+
+    <!-- ── STEP 2 · subscription type ── -->
+    <div class="reg-step"><span class="reg-step-n">2</span><h2>בחרו סוג מנוי — יחיד או זוגי</h2></div>
+    <div class="reg">
+      <div class="formcard">
+        <div class="pills">
+          <label class="pill"><input class="sub-radio" name="subscriptionType" type="radio" value="single" required /> מנוי יחיד</label>
+          <label class="pill"><input class="sub-radio" name="subscriptionType" type="radio" value="couple" /> מנוי זוגי</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── STEP 3 · subscription track ── -->
+    <div class="reg-step"><span class="reg-step-n">3</span><h2>בחרו מסלול מנוי — חמישה / שישה / שמונה קונצרטים</h2><a class="rs-link" href="https://jcamerata.smarticket.co.il/%D7%AA%D7%A7%D7%A0%D7%95%D7%9F_%D7%95%D7%9E%D7%97%D7%99%D7%A8%D7%99%D7%9D" target="_blank" rel="noopener">לתקנון ומחירים</a></div>
+    <div class="reg">
+      <div class="formcard">
+        <div class="pills">
+          <label class="pill"><input class="sub-radio" name="subscriptionTrack" type="radio" value="5" required /> 5 קונצרטים · ת״א בלבד</label>
+          <label class="pill"><input class="sub-radio" name="subscriptionTrack" type="radio" value="6" /> 6 קונצרטים</label>
+          <label class="pill"><input class="sub-radio" name="subscriptionTrack" type="radio" value="8" /> 8 קונצרטים</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── STEP 4 · choose concerts ── -->
+    <div class="reg-step"><span class="reg-step-n">4</span><h2>בחרו את הקונצרטים אותם תרצו לקבל במנוי</h2></div>
+
+    <!-- ── CONCERTS ── -->
+    <div class="wrap wrap-concerts">
 
       <div class="cgrid">
 
@@ -419,10 +485,10 @@
 
       </div><!-- /cgrid -->
 
-      <!-- BONUS CONCERT (selectable, counted toward the choose-6/8 quota) -->
-      <p class="special-hd">קונצרט בונוס מיוחד לעונה <span>· נכלל בבחירת 6/8 הקונצרטים</span></p>
+      <!-- BONUS CONCERT (optional add-on; data-optional = NOT counted in the 5/6/8 quota) -->
+      <p class="special-hd">קונצרט בונוס מיוחד לעונה <span>· בנוסף למסלול המנוי · אינו נספר במכסה</span></p>
       <label class="ccard special">
-        <input class="concert-checkbox" type="checkbox" value="קונצרט בונוס: ממעמקים" />
+        <input class="concert-checkbox" type="checkbox" data-optional value="קונצרט בונוס: ממעמקים" />
         <span class="cbadge">✓</span>
         <div class="special-row">
           <div class="cimg"><img src="/landing/assets/season26/KK26-Depths-1000x400.webp" srcset="/landing/assets/season26/KK26-Depths-1000x400.webp 1000w, /landing/assets/season26/KK26-Depths-2400x1000.webp 2400w" sizes="(max-width:920px) 100vw, 1140px" alt="קונצרט בונוס: ממעמקים — תל אביב 6.3, רחובות 7.3, ירושלים 8.3, זכרון יעקב 9.3" loading="lazy" /><div class="ov"></div></div>
@@ -435,44 +501,13 @@
       </label>
     </div><!-- /wrap -->
 
-    <!-- ── REGISTRATION ── -->
+    <!-- ── STEP 5 · submit ── -->
+    <div class="reg-step"><span class="reg-step-n">5</span><h2>לחצו על כפתור השליחה</h2></div>
     <div class="reg">
-      <div class="formcard">
-        <p class="fhd">פרטי ההרשמה</p>
-        <p class="fsub">מלאו את פרטיכם וסוג המנוי המבוקש. נחזור אליכם להשלמת ההרשמה.</p>
-        <div class="fgrid">
-          <div>
-            <label class="fl" for="full-name">שם מלא</label>
-            <input class="fi" id="full-name" name="fullName" type="text" autocomplete="name" required />
-          </div>
-          <div>
-            <label class="fl" for="phone">טלפון</label>
-            <input class="fi" id="phone" name="phone" type="tel" autocomplete="tel" required />
-          </div>
-          <div>
-            <label class="fl" for="email">אימייל</label>
-            <input class="fi" id="email" name="email" type="email" autocomplete="email" required />
-          </div>
-          <div>
-            <label class="fl" for="city">עיר מועדפת</label>
-            <select class="fselect" id="city" name="city" required>
-              <option value="" disabled selected>בחרו עיר</option>
-              <option value="תל אביב">תל אביב — מוזיאון ת״א</option>
-              <option value="רחובות">רחובות — מכון ויצמן</option>
-              <option value="ירושלים">ירושלים — ימק״א</option>
-              <option value="זכרון יעקב">זכרון יעקב — אלמא</option>
-            </select>
-          </div>
-          <div class="full">
-            <span class="fl">סוג מנוי</span>
-            <div class="pills">
-              <label class="pill"><input class="sub-radio" name="subscriptionType" type="radio" value="single" required /> מנוי יחיד</label>
-              <label class="pill"><input class="sub-radio" name="subscriptionType" type="radio" value="couple" /> מנוי זוגי</label>
-            </div>
-          </div>
-          <div id="form-message"></div>
-          <button type="submit" class="submit-btn">שלחו ונחזור אליכם</button>
-        </div>
+      <div class="formcard step-submit">
+        <p class="fsub">נקבל את בחירתכם וניצור קשר להשלמת התשלום.</p>
+        <div id="form-message"></div>
+        <button type="submit" class="submit-btn">שלחו ונחזור אליכם</button>
       </div>
     </div>
 
@@ -481,7 +516,7 @@
   <!-- ── STICKY SELECTION COUNTER ── -->
   <a class="sticky-counter" id="sticky-counter" href="#registration-form" aria-live="polite">
     <span class="sc-num" id="sticky-count">0</span>
-    <span class="sc-label">נבחרו · בחרו 6 או 8</span>
+    <span class="sc-label" id="sticky-label">בחרו מסלול מנוי</span>
   </a>
 
   <!-- ── FOOTER ── -->

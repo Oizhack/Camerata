@@ -41,10 +41,14 @@ function doPost(e) {
       }
     }
 
+    // Subscription track: 5 / 6 / 8 tickets (column H)
+    const trackMap = { '5': '5 · ת״א בלבד', '6': '6', '8': '8' };
+    const trackLabel = trackMap[payload.subscriptionTrack] || payload.subscriptionTrack || '';
+
     const nextRow = sheet.getLastRow() + 1;
 
     // Write all fields except phone (column C is filled separately below)
-    sheet.getRange(nextRow, 1, 1, 7).setValues([[
+    sheet.getRange(nextRow, 1, 1, 8).setValues([[
       formattedDate,
       payload.fullName || '',
       '',
@@ -52,6 +56,7 @@ function doPost(e) {
       subscriptionLabel,
       concerts,
       payload.city || '',
+      trackLabel,
     ]]);
 
     // Write phone separately as text to preserve leading zero
