@@ -7,10 +7,9 @@ const TA_ONLY_TRACK = 5;
 const TEL_AVIV = "תל אביב";
 
 const form = document.getElementById("registration-form");
-// Counted concerts = the 8 "כלים וקולות" concerts. The bonus ("ממעמקים") carries
-// data-optional, so it is excluded here (an add-on) but still submitted below.
-const concertCheckboxes = Array.from(document.querySelectorAll(".concert-checkbox:not([data-optional])"));
-const allConcertCheckboxes = Array.from(document.querySelectorAll(".concert-checkbox"));
+// Every concert counts toward the 5/6/8 quota, including the "ממעמקים" bonus concert.
+const concertCheckboxes = Array.from(document.querySelectorAll(".concert-checkbox"));
+const allConcertCheckboxes = concertCheckboxes;
 const trackRadios = Array.from(document.querySelectorAll('input[name="subscriptionTrack"]'));
 const citySelect = document.getElementById("city");
 const stickyCountEl = document.getElementById("sticky-count");
@@ -79,27 +78,19 @@ function updateSummary() {
     ? `מסלול ${TRACK_LABELS[track]}`
     : '<span class="rsum-todo">בחרו מסלול</span>';
 
-  // Number every chosen concert sequentially (1..N), the bonus included, so it is
-  // counted in the total. The quota count below still excludes the bonus.
+  // Number every chosen concert sequentially (1..N); the bonus is a regular concert.
   const items = chosen
     .map((cb, i) => {
       const parts = cb.value.split(/:\s(.+)/);
       const name = parts[1] || cb.value;
-      const bonus = cb.hasAttribute("data-optional");
       const badge = String(i + 1).padStart(2, "0");
-      return `<li class="${bonus ? "bonus" : ""}"><span class="n">${badge}</span><span class="cn">${name}</span>${
-        bonus ? '<span class="btag">בונוס</span>' : ""
-      }</li>`;
+      return `<li><span class="n">${badge}</span><span class="cn">${name}</span></li>`;
     })
     .join("");
 
-  const bonusSel = chosen.some((cb) => cb.hasAttribute("data-optional"));
-  const quota = track
-    ? `נבחרו <b>${counted}</b> מתוך <b>${track}</b> קונצרטים במסלול`
+  const countLine = track
+    ? `נבחרו <b>${counted}</b> מתוך <b>${track}</b> קונצרטים`
     : `נבחרו <b>${counted}</b> קונצרטים`;
-  const countLine = `${quota} · סה״כ <b>${chosen.length}</b> קונצרטים${
-    bonusSel ? " <span class='rsum-plus'>כולל בונוס</span>" : ""
-  }`;
 
   summaryEl.innerHTML =
     `<div class="rsum-head"><span class="rsum-type">${typeLabel}</span>` +
