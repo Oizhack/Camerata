@@ -132,8 +132,8 @@
     .ccard:has(.concert-checkbox:checked) .cbadge{opacity:1;transform:scale(1)}
 
     /* Finished banners: show full, un-cropped, full-colour at native 2.5:1 */
-    .cimg{position:relative;aspect-ratio:1000/400;overflow:hidden;flex-shrink:0;background:#000}
-    .cimg img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(1.13) saturate(1.03)}
+    .cimg{position:relative;aspect-ratio:3/1;overflow:hidden;flex-shrink:0;background:#000}
+    .cimg img{width:100%;height:100%;object-fit:contain;display:block;filter:brightness(1.13) saturate(1.03)}
     /* Unselected cards sit slightly recessed behind a thin veil; hover/select lifts it */
     .cimg .ov{position:absolute;inset:0;pointer-events:none;background:rgba(8,7,6,.10);transition:opacity .4s}
     .ccard:hover .cimg .ov,
@@ -163,7 +163,7 @@
     .special-badge{display:inline-block;width:fit-content;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:var(--red);padding:.3rem .7rem}
     /* Bonus card: full-width banner on top (like the 8), body below */
     .special-row{display:block}
-    .special-row .cimg{aspect-ratio:1000/400}
+    .special-row .cimg{aspect-ratio:3/1}
 
     /* ─── REGISTRATION FORM ─────────────────────────────── */
     .reg{max-width:1240px;margin:0 auto;padding:0 2.5rem 1.6rem}
