@@ -17,6 +17,7 @@ const stickyCountEl = document.getElementById("sticky-count");
 const stickyLabelEl = document.getElementById("sticky-label");
 const stickyCounter = document.getElementById("sticky-counter");
 const messageBox = document.getElementById("form-message");
+const summaryEl = document.getElementById("reg-summary");
 
 // Currently selected track (5/6/8) or null if none chosen yet.
 function getSelectedTrack() {
@@ -47,6 +48,67 @@ function updateConcertCount() {
 
   // The selection changed, so any previous validation error is now stale — clear it.
   if (messageBox && messageBox.classList.contains("error")) hideMessage();
+
+  updateSummary();
+}
+
+// Live recap of the subscriber's choices, shown as a ticket/program before submit.
+const TYPE_LABELS = { single: "יחיד", couple: "זוגי" };
+const TRACK_LABELS = { 5: "5 קונצרטים · תל אביב בלבד", 6: "6 קונצרטים", 8: "8 קונצרטים" };
+
+function updateSummary() {
+  if (!summaryEl) return;
+  const track = getSelectedTrack();
+  const typeVal = form.subscriptionType ? form.subscriptionType.value : "";
+  const chosen = allConcertCheckboxes.filter((cb) => cb.checked);
+  const counted = concertCheckboxes.filter((cb) => cb.checked).length;
+
+  // Nothing chosen yet — invite the subscriber to build their subscription above.
+  if (!track && !typeVal && chosen.length === 0) {
+    summaryEl.className = "rsum empty";
+    summaryEl.innerHTML =
+      '<p class="rsum-empty">עדיין לא בחרתם — הרכיבו את המנוי שלכם למעלה, והוא יופיע כאן.</p>';
+    return;
+  }
+
+  summaryEl.className = "rsum";
+  const typeLabel = typeVal
+    ? `מנוי ${TYPE_LABELS[typeVal]}`
+    : '<span class="rsum-todo">בחרו סוג מנוי</span>';
+  const trackLabel = track
+    ? `מסלול ${TRACK_LABELS[track]}`
+    : '<span class="rsum-todo">בחרו מסלול</span>';
+
+  // Number every chosen concert sequentially (1..N), the bonus included, so it is
+  // counted in the total. The quota count below still excludes the bonus.
+  const items = chosen
+    .map((cb, i) => {
+      const parts = cb.value.split(/:\s(.+)/);
+      const name = parts[1] || cb.value;
+      const bonus = cb.hasAttribute("data-optional");
+      const badge = String(i + 1).padStart(2, "0");
+      return `<li class="${bonus ? "bonus" : ""}"><span class="n">${badge}</span><span class="cn">${name}</span>${
+        bonus ? '<span class="btag">בונוס</span>' : ""
+      }</li>`;
+    })
+    .join("");
+
+  const bonusSel = chosen.some((cb) => cb.hasAttribute("data-optional"));
+  const quota = track
+    ? `נבחרו <b>${counted}</b> מתוך <b>${track}</b> קונצרטים במסלול`
+    : `נבחרו <b>${counted}</b> קונצרטים`;
+  const countLine = `${quota} · סה״כ <b>${chosen.length}</b> קונצרטים${
+    bonusSel ? " <span class='rsum-plus'>כולל בונוס</span>" : ""
+  }`;
+
+  summaryEl.innerHTML =
+    `<div class="rsum-head"><span class="rsum-type">${typeLabel}</span>` +
+    `<span class="rsum-dot">·</span><span class="rsum-track">${trackLabel}</span></div>` +
+    '<div class="rsum-perf" aria-hidden="true"></div>' +
+    `<div class="rsum-count">${countLine}</div>` +
+    (chosen.length
+      ? `<ol class="rsum-list">${items}</ol>`
+      : '<p class="rsum-empty">בחרו את הקונצרטים שתרצו למעלה.</p>');
 }
 
 // The 5-ticket track is Tel Aviv only: force the city to Tel Aviv and disable the
@@ -71,11 +133,15 @@ function hideMessage() {
   messageBox.textContent = "";
 }
 
-concertCheckboxes.forEach((cb) => cb.addEventListener("change", updateConcertCount));
+// All concert checkboxes (incl. the optional bonus) refresh the recap; updateConcertCount
+// only counts the non-optional ones, so the quota logic is unaffected.
+allConcertCheckboxes.forEach((cb) => cb.addEventListener("change", updateConcertCount));
 trackRadios.forEach((r) => r.addEventListener("change", () => {
   applyTrackConstraints();
   updateConcertCount();
 }));
+Array.from(document.querySelectorAll('input[name="subscriptionType"]')).forEach((r) =>
+  r.addEventListener("change", updateSummary));
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -98,9 +164,27 @@ form.addEventListener("submit", async (event) => {
     return;
   }
 
+  // Personal details are required (the form is novalidate, so we enforce them here).
+  if (!form.fullName.value.trim()) {
+    showMessage("יש למלא שם מלא.", "error");
+    form.fullName.focus();
+    return;
+  }
+  if (!/\d{6,}/.test(form.phone.value.replace(/[\s-]/g, ""))) {
+    showMessage("יש למלא מספר טלפון תקין.", "error");
+    form.phone.focus();
+    return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.value.trim())) {
+    showMessage("יש למלא כתובת אימייל תקינה.", "error");
+    form.email.focus();
+    return;
+  }
+
   // City is required; the 5-track is locked to Tel Aviv.
   if (form.city && !form.city.value) {
     showMessage("יש לבחור עיר מועדפת.", "error");
+    form.city.focus();
     return;
   }
   if (track === TA_ONLY_TRACK && form.city && form.city.value !== TEL_AVIV) {
