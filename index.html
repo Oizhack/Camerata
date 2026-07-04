@@ -110,7 +110,7 @@
     .venues li::before{content:'';position:absolute;right:0;top:.55rem;width:5px;height:5px;background:var(--gold);border-radius:50%}
 
     /* ─── SECTION HEAD ──────────────────────────────────── */
-    .wrap{max-width:1240px;margin:0 auto;padding:3rem 2.5rem 4.5rem}
+    .wrap{max-width:1240px;margin:0 auto;padding:3rem 2.5rem 2rem}
     .sec-hd{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;border-bottom:1px solid var(--line);padding-bottom:1.1rem;margin-bottom:2.4rem}
     .sec-hd h2{font-family:'Frank Ruhl Libre',serif;font-weight:900;font-size:clamp(1.7rem,3.4vw,2.5rem);color:var(--cream)}
     .sec-hd .kick{font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.5rem}
@@ -118,7 +118,7 @@
     .counter em{font-style:normal;color:var(--gold);font-size:1.2rem;font-family:'Heebo'}
 
     /* ─── CONCERT GRID ──────────────────────────────────── */
-    .cgrid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+    .cgrid{display:grid;grid-template-columns:1fr;gap:1rem}
     .ccard{position:relative;background:var(--panel);border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:border-color .3s,transform .3s,box-shadow .3s}
     .ccard:hover{border-color:var(--line-strong);transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,0,0,.4)}
     .ccard:has(.concert-checkbox:checked){border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 18px 50px rgba(201,163,92,.16)}
@@ -133,9 +133,9 @@
 
     /* Finished banners: show full, un-cropped, full-colour at native 2.5:1 */
     .cimg{position:relative;aspect-ratio:1000/400;overflow:hidden;flex-shrink:0;background:#000}
-    .cimg img{width:100%;height:100%;object-fit:cover;display:block}
+    .cimg img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(1.13) saturate(1.03)}
     /* Unselected cards sit slightly recessed behind a thin veil; hover/select lifts it */
-    .cimg .ov{position:absolute;inset:0;pointer-events:none;background:rgba(8,7,6,.32);transition:opacity .4s}
+    .cimg .ov{position:absolute;inset:0;pointer-events:none;background:rgba(8,7,6,.10);transition:opacity .4s}
     .ccard:hover .cimg .ov,
     .ccard:has(.concert-checkbox:checked) .cimg .ov{opacity:0}
 
@@ -152,7 +152,7 @@
     .chip b{color:var(--muted);font-weight:400;margin-right:.3rem}
 
     /* ─── SPECIAL CONCERT ───────────────────────────────── */
-    .special-hd{font-family:'Frank Ruhl Libre',serif;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:2.4rem 0 1rem;padding-bottom:.7rem;border-bottom:1px solid var(--line)}
+    .special-hd{font-family:'Frank Ruhl Libre',serif;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:1.6rem 0 1rem;padding-bottom:.7rem;border-bottom:1px solid var(--line)}
     .special-hd span{color:var(--muted);font-weight:400;letter-spacing:0;text-transform:none;font-family:'Assistant'}
     .ccard.special{border-color:var(--line-strong);background:linear-gradient(180deg,var(--panel-2),var(--panel))}
     .ccard.special.info-only{cursor:default}
@@ -271,14 +271,13 @@
     .intro p{font-size:1.08rem}
 
     /* ─── SEQUENTIAL STEP FLOW ─────────────────────────── */
-    .reg-step{max-width:1240px;margin:2.8rem auto 1.1rem;padding:0 2.5rem;display:flex;align-items:center;flex-wrap:wrap;gap:.7rem .9rem}
-    .reg-step-n{flex-shrink:0;width:2.1rem;height:2.1rem;border:1.5px solid var(--gold);color:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem}
+    .reg-step{max-width:1240px;margin:1.5rem auto .75rem;padding:0 2.5rem;display:flex;align-items:center;flex-wrap:wrap;gap:.7rem .9rem}
     .reg-step h2{font-weight:900;font-size:clamp(1.3rem,3vw,1.95rem);color:var(--cream);line-height:1.2}
     .reg-step .rs-link{font-size:.85rem;color:var(--gold);text-decoration:underline;white-space:nowrap}
     .step-submit{display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.1rem}
     .step-submit .submit-btn{margin-top:0}
     .step-submit #form-message{width:100%;max-width:560px}
-    .wrap-concerts{padding-top:.4rem}
+    .wrap-concerts{max-width:960px;padding-top:.4rem;padding-bottom:1.4rem}
   </style>
 </head>
 
@@ -334,7 +333,7 @@
   <form id="registration-form" novalidate>
 
     <!-- ── STEP 1 · personal details ── -->
-    <div class="reg-step"><span class="reg-step-n">1</span><h2>מלאו את פרטיכם האישיים</h2></div>
+    <div class="reg-step"><h2>מלאו את פרטיכם האישיים</h2></div>
     <div class="reg">
       <div class="formcard">
         <div class="fgrid">
@@ -365,7 +364,7 @@
     </div>
 
     <!-- ── STEP 2 · subscription type ── -->
-    <div class="reg-step"><span class="reg-step-n">2</span><h2>בחרו סוג מנוי — יחיד או זוגי</h2></div>
+    <div class="reg-step"><h2>בחרו סוג מנוי — יחיד או זוגי</h2></div>
     <div class="reg">
       <div class="formcard">
         <div class="pills">
@@ -376,7 +375,7 @@
     </div>
 
     <!-- ── STEP 3 · subscription track ── -->
-    <div class="reg-step"><span class="reg-step-n">3</span><h2>בחרו מסלול מנוי — חמישה / שישה / שמונה קונצרטים</h2><a class="rs-link" href="https://jcamerata.smarticket.co.il/%D7%AA%D7%A7%D7%A0%D7%95%D7%9F_%D7%95%D7%9E%D7%97%D7%99%D7%A8%D7%99%D7%9D" target="_blank" rel="noopener">לתקנון ומחירים</a></div>
+    <div class="reg-step"><h2>בחרו מסלול מנוי — חמישה / שישה / שמונה קונצרטים</h2><a class="rs-link" href="https://jcamerata.smarticket.co.il/%D7%AA%D7%A7%D7%A0%D7%95%D7%9F_%D7%95%D7%9E%D7%97%D7%99%D7%A8%D7%99%D7%9D" target="_blank" rel="noopener">לתקנון ומחירים</a></div>
     <div class="reg">
       <div class="formcard">
         <div class="pills">
@@ -388,7 +387,7 @@
     </div>
 
     <!-- ── STEP 4 · choose concerts ── -->
-    <div class="reg-step"><span class="reg-step-n">4</span><h2>בחרו את הקונצרטים אותם תרצו לקבל במנוי</h2></div>
+    <div class="reg-step"><h2>בחרו את הקונצרטים אותם תרצו לקבל במנוי</h2></div>
 
     <!-- ── CONCERTS ── -->
     <div class="wrap wrap-concerts">
@@ -399,7 +398,7 @@
         <label class="ccard">
           <input class="concert-checkbox" type="checkbox" value="קונצרט 1: בטהובן - בצילו של גאון" />
           <span class="num">01</span><span class="cbadge">✓</span>
-          <div class="cimg"><img src="/landing/assets/season26/KK26-Beethoven-1000x400.webp" srcset="/landing/assets/season26/KK26-Beethoven-1000x400.webp 1000w, /landing/assets/season26/KK26-Beethoven-2400x1000.webp 2400w" sizes="(max-width:920px) 100vw, 571px" alt="קונצרט 1: בטהובן - בצילו של גאון — תל אביב 16.10, רחובות 18.10, ירושלים 19.10, זכרון יעקב 20.10" loading="lazy" /><div class="ov"></div></div>
+          <div class="cimg"><img src="/landing/assets/season26/KK26-Beethoven-1000x400.webp" srcset="/landing/assets/season26/KK26-Beethoven-1000x400.webp 1000w, /landing/assets/season26/KK26-Beethoven-2400x1000.webp 2400w" sizes="(max-width:920px) 100vw, 900px" alt="קונצרט 1: בטהובן - בצילו של גאון — תל אביב 16.10, רחובות 18.10, ירושלים 19.10, זכרון יעקב 20.10" loading="lazy" /><div class="ov"></div></div>
           <div class="cbody">
             <p class="prog"><b>קורלי</b> / לה פוליה<br><b>בטהובן</b> / סימפוניה מס׳ 2<br><b>ורניצקי</b> / סימפוניה אופ׳ 36 — 200 שנה למותו של בטהובן.</p>
             <div class="crew"><b>מנצח:</b> ריינהרד גבל (גרמניה)</div>
@@ -410,7 +409,7 @@
         <label class="ccard">
           <input class="concert-checkbox" type="checkbox" value="קונצרט 2: התגלית: האוצר (המוזיקלי) של ויינברג" />
           <span class="num">02</span><span class="cbadge">✓</span>
-          <div class="cimg"><img src="/landing/assets/season26/KK26-Weinberg-1000x400.webp" srcset="/landing/assets/season26/KK26-Weinberg-1000x400.webp 1000w, /landing/assets/season26/KK26-Weinberg-2400x1000.webp 2400w" sizes="(max-width:920px) 100vw, 571px" alt="קונצרט 2: התגלית: האוצר (המוזיקלי) של ויינברג — תל אביב 20.11, רחובות 22.11, ירושלים 23.11, זכרון יעקב 24.11" loading="lazy" /><div class="ov"></div></div>
+          <div class="cimg"><img src="/landing/assets/season26/KK26-Weinberg-1000x400.webp" srcset="/landing/assets/season26/KK26-Weinberg-1000x400.webp 1000w, /landing/assets/season26/KK26-Weinberg-2400x1000.webp 2400w" sizes="(max-width:920px) 100vw, 900px" alt="קונצרט 2: התגלית: האוצר (המוזיקלי) של ויינברג — תל אביב 20.11, רחובות 22.11, ירושלים 23.11, זכרון יעקב 24.11" loading="lazy" /><div class="ov"></div></div>
           <div class="cbody">
             <p class="prog"><b>היידן</b> / סימפוניה מס׳ 81<br><b>בוקריני</b> / קונצ׳רטו לצ׳לו<br><b>צ׳ייקובסקי</b> / וריאציות רוקוקו<br><b>ויינברג</b> / סימפוניה קאמרית מס׳ 1.</p>
             <div class="crew"><b>סולן:</b> <span class="note">צ׳לן — יפורסם בהמשך</span></div>
@@ -421,7 +420,7 @@
         <label class="ccard">
           <input class="concert-checkbox" type="checkbox" value="קונצרט 3: קולות מן השמיים - מעיין ליכט" />
           <span class="num">03</span><span class="cbadge">✓</span>
-          <div class="cimg"><img src="/landing/assets/season26/KK26-Licht-1000x400.webp" srcset="/landing/assets/season26/KK26-Licht-1000x400.webp 1000w, /landing/assets/season26/KK26-Licht-2400x1000.webp 2400w" sizes="(max-width:920px) 100vw, 571px" alt="קונצרט 3: קולות מן השמיים - מעיין ליכט — תל אביב 11.12 ו-12.12, רחובות 13.12, ירושלים 14.12, זכרון יעקב 15.12" loading="lazy" /><div class="ov"></div></div>
+          <div class="cimg"><img src="/landing/assets/season26/KK26-Licht-1000x400.webp" srcset="/landing/assets/season26/KK26-Licht-1000x400.webp 1000w, /landing/assets/season26/KK26-Licht-2400x1000.webp 2400w" sizes="(max-width:920px) 100vw, 900px" alt="קונצרט 3: קולות מן השמיים - מעיין ליכט — תל אביב 11.12 ו-12.12, רחובות 13.12, ירושלים 14.12, זכרון יעקב 15.12" loading="lazy" /><div class="ov"></div></div>
           <div class="cbody">
             <p class="prog">ערב מיוחד עם הסופרן מעיין ליכט. התוכנית המלאה תפורסם בהמשך.</p>
             <div class="crew"><b>סולן:</b> מעיין ליכט — סופרן</div>
@@ -432,7 +431,7 @@
         <label class="ccard">
           <input class="concert-checkbox" type="checkbox" value="קונצרט 4: פוצ׳יני הסודי: מעבר לאופרה" />
           <span class="num">04</span><span class="cbadge">✓</span>
-          <div class="cimg"><img src="/landing/assets/season26/KK26-Puccini-1000x400.webp" srcset="/landing/assets/season26/KK26-Puccini-1000x400.webp 1000w, /landing/assets/season26/KK26-Puccini-2400x1000.webp 2400w" sizes="(max-width:920px) 100vw, 571px" alt="קונצרט 4: פוצ׳יני הסודי: מעבר לאופרה — תל אביב 1.1, רחובות 3.1, ירושלים 4.1, זכרון יעקב 5.1" loading="lazy" /><div class="ov"></div></div>
+          <div class="cimg"><img src="/landing/assets/season26/KK26-Puccini-1000x400.webp" srcset="/landing/assets/season26/KK26-Puccini-1000x400.webp 1000w, /landing/assets/season26/KK26-Puccini-2400x1000.webp 2400w" sizes="(max-width:920px) 100vw, 900px" alt="קונצרט 4: פוצ׳יני הסודי: מעבר לאופרה — תל אביב 1.1, רחובות 3.1, ירושלים 4.1, זכרון יעקב 5.1" loading="lazy" /><div class="ov"></div></div>
           <div class="cbody">
             <p class="prog"><b>בוקסטהודה</b> / קנטטה BuxWV 15<br><b>פוצ׳יני</b> / כריזנטמות<br><b>פוצ׳יני</b> / מיסה די גלוריה.</p>
             <div class="crew"><b>בהשתתפות:</b> האנסמבל הקולי הישראלי <span class="note">· סולנים יפורסמו</span></div>
@@ -443,7 +442,7 @@
         <label class="ccard">
           <input class="concert-checkbox" type="checkbox" value="קונצרט 5: פנינים חבויות - אוצרות המוזיקה האיטלקית" />
           <span class="num">05</span><span class="cbadge">✓</span>
-          <div class="cimg"><img src="/landing/assets/season26/KK26-Italy-1000x400.webp" srcset="/landing/assets/season26/KK26-Italy-1000x400.webp 1000w, /landing/assets/season26/KK26-Italy-2400x1000.webp 2400w" sizes="(max-width:920px) 100vw, 571px" alt="קונצרט 5: פנינים חבויות - אוצרות המוזיקה האיטלקית — תל אביב 10.2, רחובות 14.2, ירושלים 15.2, זכרון יעקב 16.2" loading="lazy" /><div class="ov"></div></div>
+          <div class="cimg"><img src="/landing/assets/season26/KK26-Italy-1000x400.webp" srcset="/landing/assets/season26/KK26-Italy-1000x400.webp 1000w, /landing/assets/season26/KK26-Italy-2400x1000.webp 2400w" sizes="(max-width:920px) 100vw, 900px" alt="קונצרט 5: פנינים חבויות - אוצרות המוזיקה האיטלקית — תל אביב 10.2, רחובות 14.2, ירושלים 15.2, זכרון יעקב 16.2" loading="lazy" /><div class="ov"></div></div>
           <div class="cbody">
             <p class="prog">סולני הקאמרטה, ללא מנצח.<br><b>ויוואלדי</b><br><b>מונטנארי</b> / קונצ׳רטו גרוסו<br><b>רספיגי</b> / אריות ומחולות עתיקים<br><b>קורלי</b> / קונצ׳רטו גרוסו אופ׳ 6.</p>
             <div class="crew"><b>ביצוע:</b> סולני הקאמרטה <span class="note">· ללא מנצח</span></div>
@@ -454,7 +453,7 @@
         <label class="ccard">
           <input class="concert-checkbox" type="checkbox" value="קונצרט 6: הריקוד של הלילה" />
           <span class="num">06</span><span class="cbadge">✓</span>
-          <div class="cimg"><img src="/landing/assets/season26/KK26-Dance-1000x400.webp" srcset="/landing/assets/season26/KK26-Dance-1000x400.webp 1000w, /landing/assets/season26/KK26-Dance-2400x1000.webp 2400w" sizes="(max-width:920px) 100vw, 571px" alt="קונצרט 6: הריקוד של הלילה — תל אביב 9.4, רחובות 11.4, ירושלים 12.4, זכרון יעקב 13.4" loading="lazy" /><div class="ov"></div></div>
+          <div class="cimg"><img src="/landing/assets/season26/KK26-Dance-1000x400.webp" srcset="/landing/assets/season26/KK26-Dance-1000x400.webp 1000w, /landing/assets/season26/KK26-Dance-2400x1000.webp 2400w" sizes="(max-width:920px) 100vw, 900px" alt="קונצרט 6: הריקוד של הלילה — תל אביב 9.4, רחובות 11.4, ירושלים 12.4, זכרון יעקב 13.4" loading="lazy" /><div class="ov"></div></div>
           <div class="cbody">
             <p class="prog"><b>היידן</b> / סימפוניה מס׳ 8 "הערב"<br>שירים עבריים בעיבוד לזמרת ולתזמורת<br><b>שנברג</b> / ליל הוד.</p>
             <div class="crew"><b>סולנית:</b> דניאלה סקורקה — סופרן</div>
@@ -465,7 +464,7 @@
         <label class="ccard">
           <input class="concert-checkbox" type="checkbox" value="קונצרט 7: סרנדה למיתרים" />
           <span class="num">07</span><span class="cbadge">✓</span>
-          <div class="cimg"><img src="/landing/assets/season26/KK26-Strings-1000x400.webp" srcset="/landing/assets/season26/KK26-Strings-1000x400.webp 1000w, /landing/assets/season26/KK26-Strings-2400x1000.webp 2400w" sizes="(max-width:920px) 100vw, 571px" alt="קונצרט 7: סרנדה למיתרים — תל אביב 15.5, ירושלים 16.5, זכרון יעקב 17.5, רחובות 20.5" loading="lazy" /><div class="ov"></div></div>
+          <div class="cimg"><img src="/landing/assets/season26/KK26-Strings-1000x400.webp" srcset="/landing/assets/season26/KK26-Strings-1000x400.webp 1000w, /landing/assets/season26/KK26-Strings-2400x1000.webp 2400w" sizes="(max-width:920px) 100vw, 900px" alt="קונצרט 7: סרנדה למיתרים — תל אביב 15.5, ירושלים 16.5, זכרון יעקב 17.5, רחובות 20.5" loading="lazy" /><div class="ov"></div></div>
           <div class="cbody">
             <p class="prog"><b>מוצרט</b> / סימפוניה מס׳ 33<br><b>ויינברג</b> / קונצ׳רטינו לכינור<br><b>איל אדלר</b> / בכורה עולמית<br><b>דבוז׳ק</b> / סרנדה לכלי קשת.</p>
             <div class="crew"><b>סולנית:</b> נטשה שר — כינור</div>
@@ -476,7 +475,7 @@
         <label class="ccard">
           <input class="concert-checkbox" type="checkbox" value="קונצרט 8: מסתרי הגיטרה הספרדית" />
           <span class="num">08</span><span class="cbadge">✓</span>
-          <div class="cimg"><img src="/landing/assets/season26/KK26-Guitar-1000x400.webp" srcset="/landing/assets/season26/KK26-Guitar-1000x400.webp 1000w, /landing/assets/season26/KK26-Guitar-2400x1000.webp 2400w" sizes="(max-width:920px) 100vw, 571px" alt="קונצרט 8: מסתרי הגיטרה הספרדית — תל אביב 5.6, רחובות 6.6, ירושלים 7.6, זכרון יעקב 8.6" loading="lazy" /><div class="ov"></div></div>
+          <div class="cimg"><img src="/landing/assets/season26/KK26-Guitar-1000x400.webp" srcset="/landing/assets/season26/KK26-Guitar-1000x400.webp 1000w, /landing/assets/season26/KK26-Guitar-2400x1000.webp 2400w" sizes="(max-width:920px) 100vw, 900px" alt="קונצרט 8: מסתרי הגיטרה הספרדית — תל אביב 5.6, רחובות 6.6, ירושלים 7.6, זכרון יעקב 8.6" loading="lazy" /><div class="ov"></div></div>
           <div class="cbody">
             <p class="prog"><b>סטרווינסקי</b> / מחולות קונצרטנטיים<br><b>רודריגו</b> / קונצ׳רטו דה ארנחואס<br><b>מוצרט</b> / "לינץ"<br><b>אלבניס</b> / אסטוריאס.</p>
             <div class="crew"><b>סולן:</b> <span class="note">גיטריסט — יפורסם בהמשך</span></div>
@@ -491,7 +490,7 @@
         <input class="concert-checkbox" type="checkbox" data-optional value="קונצרט בונוס: ממעמקים" />
         <span class="cbadge">✓</span>
         <div class="special-row">
-          <div class="cimg"><img src="/landing/assets/season26/KK26-Depths-1000x400.webp" srcset="/landing/assets/season26/KK26-Depths-1000x400.webp 1000w, /landing/assets/season26/KK26-Depths-2400x1000.webp 2400w" sizes="(max-width:920px) 100vw, 1140px" alt="קונצרט בונוס: ממעמקים — תל אביב 6.3, רחובות 7.3, ירושלים 8.3, זכרון יעקב 9.3" loading="lazy" /><div class="ov"></div></div>
+          <div class="cimg"><img src="/landing/assets/season26/KK26-Depths-1000x400.webp" srcset="/landing/assets/season26/KK26-Depths-1000x400.webp 1000w, /landing/assets/season26/KK26-Depths-2400x1000.webp 2400w" sizes="(max-width:920px) 100vw, 900px" alt="קונצרט בונוס: ממעמקים — תל אביב 6.3, רחובות 7.3, ירושלים 8.3, זכרון יעקב 9.3" loading="lazy" /><div class="ov"></div></div>
           <div class="cbody">
             <span class="special-badge">קונצרט בונוס</span>
             <p class="prog"><b>באך</b> / קנטטות BWV 150 ו-131<br><b>הנדל</b> / קונצ׳רטו גרוסו<br><b>קמינסקי</b> / מוטט<br><b>צבי אבני</b> / ממעמקים<br><b>אודי פרלמן</b> / פרק תהילים פ״ו.</p>
@@ -502,7 +501,7 @@
     </div><!-- /wrap -->
 
     <!-- ── STEP 5 · submit ── -->
-    <div class="reg-step"><span class="reg-step-n">5</span><h2>לחצו על כפתור השליחה</h2></div>
+    <div class="reg-step"><h2>לחצו על כפתור השליחה</h2></div>
     <div class="reg">
       <div class="formcard step-submit">
         <p class="fsub">נקבל את בחירתכם וניצור קשר להשלמת התשלום.</p>
